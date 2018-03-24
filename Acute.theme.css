@@ -59,6 +59,29 @@
 
 .modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer { border-radius: 0% !important; background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
 
+.action-buttons {
+	background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important;
+	box-shadow: none !important;
+	border-radius: 0% !important;
+}
+
+.action-buttons > div {
+	border-radius: 0% !important;
+	background-color: var(--primary-color) !important;
+	color: white !important;
+	opacity: 1 !important;
+}
+
+.action-buttons > div > div {
+	color: white !important;
+}
+
+.action-buttons > .close-button {
+	height: 18px !important;
+	width: 18px !important;
+	margin-top: 0px !important;
+}
+
 .flex-spacer.flex-vertical > div > div > div > div > button { border-radius: 0% !important; background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; color: white !important; }
 
 .container-2oOGIt { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)); }
@@ -78,7 +101,7 @@
 .channel.private, .channel.private > a { background-color: transparent !important; }
 .channel.private:hover, .channel.private > a:hover { background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important; }
 
-.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
+.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light, .theme-dark.popouts > div > div > div.scroller-wrap.dark > div > div, .wrapper-uAa07y { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
 .item-1XYaYf:hover { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; border-radius: 0% !important; }
 
 .status-online { border:2px solid var(--online-color) !important; }
@@ -234,6 +257,22 @@
     animation-duration: 1s;
     animation-iteration-count: infinite;
 }
+
+.message.mentioned > .body > .message-text {
+	background-color: rgba(0, 0, 0, var(--medium-darkness-level));
+	padding-bottom: var(--message-spacing);
+}
+
+.message.mentioned > .body > .message-text::after {
+	border-left: 5px solid var(--primary-color);
+	border-radius: 0%;
+}
+
+.mention { color: var(--primary-color) !important; transition: color 0.2s linear; }
+.mention:hover { color: white !important; }
+
+.timestamp { transition: color 0.2s linear; }
+.timestamp:hover { color: white !important; }
 
 @keyframes message-sending-pulse {
     0% { color: #A5A5A5; }
