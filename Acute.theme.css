@@ -1,4 +1,17 @@
-//META{"name" : "Acute", "description" : "Sharp, highly customizable.", "author" : "Metalloriff", "version":"1.0"}*//
+//META{"name" : "Acute", "description" : "A simple, sharp theme.", "author" : "Metalloriff", "version":"1.0"}*//
+
+/*
+
+If you want to use my crappy first theme, either download the theme file to %appdata%/BetterDiscord/themes, or put this at the top of your custom CSS:
+	@import url("https://rawgithub.com/Metalloriff/BetterDiscordThemes/master/Acute.theme.css");
+
+If you want to change the variables, copy the ":root" block below into your custom CSS, and insert "!important" after every variable you change. Example:
+	--font: Whitney !important;
+
+If you want to use a custom background image, set the background-image variable to "url("YOURURL.png/jpg/etc")". Example:
+	--background-image: url("https://derpicdn.net/img/view/2016/4/25/1139834.jpeg") !important;
+
+*/
 
 :root {
 	--primary-color: rgb(35, 130, 255);
@@ -15,6 +28,7 @@
 	--heavy-darkness-level: 0.7;
 	--font: Helvetica; /*Default is Whitney*/
 	--message-spacing: 5px;
+	--show-unread-messages-bar: 1;
 }
 
 * { font-family: var(--font) !important; }
@@ -41,7 +55,7 @@
 }
 
 .nameHoveredText-2FFqiz { color: white !important; }
-.unreadBar-3lDSDn.unread-2TDDFN.active-2wuntj { background-color: black !important; opacity: 0.7; }
+.unreadBar-3lDSDn.unread-2TDDFN.active-2wuntj { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; opacity: var(--show-unread-messages-bar); }
 .nameMutedText-1YDcP-.name-2SL4ev.overflowEllipsis-3Rxxjf { color: white; opacity: 0.4; }
 .nameDefaultVoice-1swZoh.name-2SL4ev.overflowEllipsis-3Rxxjf, .nameDefaultText-QoumjC.name-2SL4ev.overflowEllipsis-3Rxxjf { color: white; opacity: 0.7; }
 .nameDefault-Lnjrwm.colorTransition-2iZaYd.overflowEllipsis-2ynGQq { color: white; }
@@ -52,6 +66,8 @@
 .comment:hover { background: rgba(0, 0, 0, var(--light-darkness-level)); }
 
 .markup { color: white !important; padding-top: var(--message-spacing); }
+
+.member-activity-text { color: white !important; }
 
 .botTag-1OwMgs { border-radius: 0% !important; }
 
@@ -170,16 +186,18 @@
 	line-height: 180%;
 }
 
-.divider:not(.divider-red) { margin-bottom: 3.5%; margin-top: 3.5%; }
+.divider:not(.divider-red) { margin-bottom: 5px; margin-top: 5px;  }
 .divider > div, .divider::before { display: none !important; }
 
 .divider.divider-red > span {
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important;
-	color: var(--primary-color) !important;
+	color: var(--secondary-color) !important;
 	opacity: 0.9;
 	border-radius: 0% !important;
-	margin-bottom: 3.5%;
-	margin-top: 3.5%;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	left: 45%;
+	transform: scale(1.25, 1.25);
 }
 
 .divider > span {
@@ -271,8 +289,8 @@
 .mention { color: var(--primary-color) !important; transition: color 0.2s linear; }
 .mention:hover { color: white !important; }
 
-.timestamp { transition: color 0.2s linear; }
-.timestamp:hover { color: white !important; }
+.timestamp, .topic-1KFf6J { transition: color 0.2s linear; }
+.timestamp:hover, .topic-1KFf6J:hover { color: white !important; }
 
 @keyframes message-sending-pulse {
     0% { color: #A5A5A5; }
