@@ -31,7 +31,7 @@ If you want to use a custom background image, set the background-image variable 
 	--font: Helvetica; /*Default is Whitney*/
 	--message-spacing: 5px;
 	--show-unread-messages-bar: 1;
-	--rounding-level: 5%;
+	--rounding-level: 0%;
 }
 
 * { font-family: var(--font) !important; }
