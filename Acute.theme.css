@@ -31,6 +31,7 @@ If you want to use a custom background image, set the background-image variable 
 	--font: Helvetica; /*Default is Whitney*/
 	--message-spacing: 5px;
 	--show-unread-messages-bar: 1;
+	--rounding-level: 5%;
 }
 
 * { font-family: var(--font) !important; }
@@ -71,22 +72,22 @@ If you want to use a custom background image, set the background-image variable 
 
 .member-activity-text { color: white !important; }
 
-.botTag-1OwMgs { border-radius: 0% !important; }
+.botTag-1OwMgs { border-radius: var(--rounding-level) !important; }
 
-.inline, .jump-to-present-bar { border-radius: 0% !important; background-color: rgba(255, 255, 255, var(--light-darkness-level)) !important; }
+.inline, .jump-to-present-bar { border-radius: var(--rounding-level) !important; background-color: rgba(255, 255, 255, var(--light-darkness-level)) !important; }
 
-.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer, .message-group-blocked-btn, .message-group-blocked { border-radius: 0% !important; background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
+.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer, .message-group-blocked-btn, .message-group-blocked { border-radius: var(--rounding-level) !important; background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
 
-.tooltip { border-radius: 0% !important; background: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; }
+.tooltip { border-radius: var(--rounding-level) !important; background: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; }
 
 .action-buttons {
 	background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important;
 	box-shadow: none !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 }
 
 .action-buttons > div {
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	background-color: var(--primary-color) !important;
 	color: white !important;
 	opacity: 1 !important;
@@ -102,31 +103,31 @@ If you want to use a custom background image, set the background-image variable 
 	margin-top: 0px !important;
 }
 
-.flex-spacer.flex-vertical > div > div > div > div > button { border-radius: 0% !important; background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; color: white !important; }
+.flex-spacer.flex-vertical > div > div > div > div > button { border-radius: var(--rounding-level) !important; background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; color: white !important; }
 
 .container-2oOGIt { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)); }
 
-.new-messages-bar { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
+.new-messages-bar { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: var(--rounding-level) !important; }
 
 .scrollbarGhostHairline-D_btXm.scrollbar-11WJwo:focus, .wrapperHoveredText-1PA_Uk.wrapper-fDmxzK, .item-1XYaYf.itemSubMenu-3ZgIw- { background-color: transparent !important; }
 
 ::-webkit-scrollbar-track-piece,
-::-webkit-scrollbar-button { background: rgba(0, 0, 0, 0.2) !important; border:none !important; width: border-radius: 0% !important; }
-::-webkit-scrollbar-thumb{background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; border:none !important; border-radius: 0% !important; }
+::-webkit-scrollbar-button { background: rgba(0, 0, 0, 0.2) !important; border:none !important; width: border-radius: var(--rounding-level) !important; }
+::-webkit-scrollbar-thumb{background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; border:none !important; border-radius: var(--rounding-level) !important; }
 
 .innerEnabledNoAttach-36PpAk.inner-3if5cm.flex-3B1Tl4.innerNoAutocomplete-kaUXJZ, .channel.selected.private > a, .innerEnabled-gLHeOL, .contentSelectedText-3j5CXt.content-2mSKOj, .contentHoveredText-2HYGIY.content-2mSKOj, .autocomplete-1TnWNR.autocomplete-1LLKUa > div > div {
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important;
-	border-radius: 0% !important
+	border-radius: var(--rounding-level) !important
 }
 
-.innerDisabled-1hSPu_ { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
+.innerDisabled-1hSPu_ { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: var(--rounding-level) !important; }
 .channelTextAreaDisabled-TBtxS6 { opacity: 1; }
 
 .channel.private, .channel.private > a { background-color: transparent !important; }
 .channel.private:hover, .channel.private > a:hover { background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important; }
 
-.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light, .theme-dark.popouts > div > div > div.scroller-wrap.dark > div > div, .wrapper-uAa07y { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
-.item-1XYaYf:hover { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; border-radius: 0% !important; }
+.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light, .theme-dark.popouts > div > div > div.scroller-wrap.dark > div > div, .wrapper-uAa07y { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: var(--rounding-level) !important; }
+.item-1XYaYf:hover { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; border-radius: var(--rounding-level) !important; }
 
 .status-online { border:2px solid var(--online-color) !important; }
 .statusOnline-1Mp2_H { border:2px solid var(--online-color) !important; }
@@ -140,7 +141,7 @@ If you want to use a custom background image, set the background-image variable 
 .status {
 	width: 0px !important;
 	height: 87% !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	bottom: 0px !important;
 	right: 100% !important;
 }
@@ -148,11 +149,11 @@ If you want to use a custom background image, set the background-image variable 
 .status-typing {
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level));
 	left: 0%;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 }
 
-.embedInner-t4ag7g { background: rgba(0, 0, 0, var(--light-darkness-level)) !important; border-radius: 0% !important; }
-.unread-mentions-indicator-bottom > div, .embedPill-3sYS1X { background-color: var(--primary-color) !important; border-radius: 0% !important; }
+.embedInner-t4ag7g { background: rgba(0, 0, 0, var(--light-darkness-level)) !important; border-radius: var(--rounding-level) !important; }
+.unread-mentions-indicator-bottom > div, .embedPill-3sYS1X { background-color: var(--primary-color) !important; border-radius: var(--rounding-level) !important; }
 
 .themeGhostHairlineChannels-2lQojW.scrollerFade-28dRsO > div > div > div > div > div > div > svg {
 	color: white !important;
@@ -160,7 +161,7 @@ If you want to use a custom background image, set the background-image variable 
 }
 
 .guild:not(:first-child) { margin-top: 15px !important; }
-.guild-inner { border-radius: 0% !important; }
+.guild-inner { border-radius: var(--rounding-level) !important; }
 
 .guild.selected::before {
 	background: var(--secondary-color) !important;
@@ -169,7 +170,7 @@ If you want to use a custom background image, set the background-image variable 
 	top: 0% !important;
 	left: -10% !important;
 	margin-top: 0% !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 }
 
 .guild.unread::before {
@@ -179,12 +180,12 @@ If you want to use a custom background image, set the background-image variable 
 	top: 0% !important;
 	left: -10% !important;
 	margin-top: 0% !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 }
 
 .guilds-wrapper > div.scroller-wrap > div > div.guild.unread.audio > div.badge, .guilds-wrapper > div.scroller-wrap > div > span > div > div.badge {
 	background-color: rgba(0, 0, 0, var(--light-darkness-level));
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	height: 90%;
 	width: 75%;
 	top: 0%;
@@ -201,7 +202,7 @@ If you want to use a custom background image, set the background-image variable 
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important;
 	color: var(--secondary-color) !important;
 	opacity: 0.9;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	margin-bottom: 50px;
 	margin-top: 50px;
 	left: 45%;
@@ -210,16 +211,16 @@ If you want to use a custom background image, set the background-image variable 
 
 .divider > span {
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .grow-25YQ8u {
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 	background-color: var(--primary-color) !important;
 }
 
-.item-3879bf, .connection-2r9Zua { border-radius: 0% !important; }
+.item-3879bf, .connection-2r9Zua { border-radius: var(--rounding-level) !important; }
 .item-3879bf:hover { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
 
 .channels-wrap, .activityFeed-HeiGwL, #friends .headerBar-cxbhPD, .lfg-3xoFkI, .app .guilds .guild.active:first-child, .headerPlaying-2Q7mBy, .userPopout-11hFKo .headerStreaming-lmgoma, .userPopout-11hFKo .body-3ljq11, .userPopout-11hFKo .footer-2wFs91, .headerNormal-3Vn9nT, .headerStreaming-lmgoma, .title-wrap, .channel-members, .private-channel-call, .content .flex-spacer, .friends-table, .friends-header, .headerSpotify-26yUf5, .channels-3g2vYe, #app-mount .titleWrapper-3Vi_wz, .app .guilds .guild:first-child, .channel-members::after, .guilds-wrapper, .ui-standard-sidebar-view, .sidebar-region, .content-region {
@@ -231,7 +232,7 @@ If you want to use a custom background image, set the background-image variable 
 }
 
 .avatarContainer-303pFz.margin-reset > div {
-	border-radius: 0%;
+	border-radius: var(--rounding-level);
 	background-size: cover !important;
 	width: 32px;
 	height: 32px;
@@ -244,7 +245,7 @@ If you want to use a custom background image, set the background-image variable 
 }
 .nameSpeaking-3ROx9q { color: var(--primary-color) !important; }
 
-.callAvatar-i2aKmR.voice-3qolcc, .callAvatarBorder-OF5XZJ.voice-3qolcc.speaking-dRlv0T, .image-EVRGPw { border-radius: 0% !important; }
+.callAvatar-i2aKmR.voice-3qolcc, .callAvatarBorder-OF5XZJ.voice-3qolcc.speaking-dRlv0T, .image-EVRGPw { border-radius: var(--rounding-level) !important; }
 .callAvatarBorder-OF5XZJ.voice-3qolcc.speaking-dRlv0T { box-shadow: 0 0 0 5px var(--primary-color); }
 
 .chat .avatar-large {
@@ -252,29 +253,29 @@ If you want to use a custom background image, set the background-image variable 
 	width: var(--chat-avatar-size);
 	height: var(--chat-avatar-size);
 	background-size: cover !important;
-	border-radius: 0% !important;
+	border-radius: var(--rounding-level) !important;
 }
 
 .videoHeight-iWOJGF.minimum.minimum-Eac95h.private-channel-call.animated-2tXqxn > div { background-color: rgba(0, 0, 0, 0.2); }
 
-.avatar-large, .avatar-profile, .avatar-small, .avatar-xlarge, .avatar-xsmall, .avatar-xxlarge, .avatar-popout, .avatar-hint, .avatar-wrapper { background-color: rgba(0, 0, 0, var(--medium-darkness-level)); border-radius: 0% !important; }
+.avatar-large, .avatar-profile, .avatar-small, .avatar-xlarge, .avatar-xsmall, .avatar-xxlarge, .avatar-popout, .avatar-hint, .avatar-wrapper { background-color: rgba(0, 0, 0, var(--medium-darkness-level)); border-radius: var(--rounding-level); }
 
 .separator-1hpa3S { border-bottom: 1px solid var(--primary-color) !important; opacity: var(--medium-darkness-level); }
 
-.menu-3BZuDT, .item-rK1j5B:hover, .friends-online:hover { background-color: rgba(0, 0, 0, 0.8); border-radius: 0% !important; color: white !important; }
+.menu-3BZuDT, .item-rK1j5B:hover, .friends-online:hover { background-color: rgba(0, 0, 0, 0.8); border-radius: var(--rounding-level) !important; color: white !important; }
 
-.flex-lFgbSz.flex-3B1Tl4.horizontal-2BEEBe.horizontal-2VE-Fw.flex-3B1Tl4.directionRow-yNbSvJ.justifyCenter-29N31w.alignCenter-3VxkQP.noWrap-v6g9vO.avatarHint-2ohlkz.maskProfile-MeBve8.mask-2vyqAW.size10-1ZEdeK.height12-1-l4d8.weightBold-2qbcng, .image-EVRGPw.maskProfile-MeBve8.mask-2vyqAW { border-radius: 0%; -webkit-mask: none; }
+.flex-lFgbSz.flex-3B1Tl4.horizontal-2BEEBe.horizontal-2VE-Fw.flex-3B1Tl4.directionRow-yNbSvJ.justifyCenter-29N31w.alignCenter-3VxkQP.noWrap-v6g9vO.avatarHint-2ohlkz.maskProfile-MeBve8.mask-2vyqAW.size10-1ZEdeK.height12-1-l4d8.weightBold-2qbcng, .image-EVRGPw.maskProfile-MeBve8.mask-2vyqAW { border-radius: var(--rounding-level); -webkit-mask: none; }
 
 .statusProfile-29OBzn {
 	width: 95.9%;
 	height: 95.9%;
 	right: 0px;
 	top: 0px;
-	border-radius: 0%;
+	border-radius: var(--rounding-level);
 	background-color: transparent;
 }
 
-.toasts { opacity: 0.4; transition: opacity 0.2s linear; border-radius: 0%; }
+.toasts { opacity: 0.4; transition: opacity 0.2s linear; border-radius: var(--rounding-level); }
 .toasts:hover { opacity: 1 !important; }
 
 .message-sending > .body > .message-text > .markup {
@@ -291,7 +292,7 @@ If you want to use a custom background image, set the background-image variable 
 
 .message.mentioned > .body > .message-text::after {
 	border-left: 5px solid var(--primary-color);
-	border-radius: 0%;
+	border-radius: var(--rounding-level);
 }
 
 .mention { color: var(--primary-color) !important; transition: color 0.2s linear; }
@@ -306,7 +307,7 @@ If you want to use a custom background image, set the background-image variable 
 
 #charcounter { right: 7%; bottom: 30%; }
 
-.kawaii-tag { border-radius: 0% !important; }
+.kawaii-tag { border-radius: var(--rounding-level) !important; }
 
 /* animations */
 
