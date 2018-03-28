@@ -13,6 +13,8 @@ If you want to use a custom background image, set the background-image variable 
 
 */
 
+/* variables */
+
 :root {
 	--primary-color: rgb(35, 130, 255);
 	--secondary-color: rgb(114, 137, 218);
@@ -71,9 +73,11 @@ If you want to use a custom background image, set the background-image variable 
 
 .botTag-1OwMgs { border-radius: 0% !important; }
 
-.inline { border-radius: 0% !important; background-color: rgba(255, 255, 255, var(--light-darkness-level)) !important; }
+.inline, .jump-to-present-bar { border-radius: 0% !important; background-color: rgba(255, 255, 255, var(--light-darkness-level)) !important; }
 
-.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer { border-radius: 0% !important; background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
+.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer, .message-group-blocked-btn, .message-group-blocked { border-radius: 0% !important; background: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
+
+.tooltip { border-radius: 0% !important; background: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; }
 
 .action-buttons {
 	background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important;
@@ -114,6 +118,10 @@ If you want to use a custom background image, set the background-image variable 
 	background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important;
 	border-radius: 0% !important
 }
+
+.innerDisabled-1hSPu_ { background-color: rgba(0, 0, 0, var(--heavy-darkness-level)) !important; border-radius: 0% !important; }
+.channelTextAreaDisabled-TBtxS6 { opacity: 1; }
+
 .channel.private, .channel.private > a { background-color: transparent !important; }
 .channel.private:hover, .channel.private > a:hover { background-color: rgba(0, 0, 0, var(--light-darkness-level)) !important; }
 
@@ -253,7 +261,7 @@ If you want to use a custom background image, set the background-image variable 
 
 .separator-1hpa3S { border-bottom: 1px solid var(--primary-color) !important; opacity: var(--medium-darkness-level); }
 
-.menu-3BZuDT, .item-rK1j5B:hover { background-color: rgba(0, 0, 0, 0.8); border-radius: 0% !important; color: white !important; }
+.menu-3BZuDT, .item-rK1j5B:hover, .friends-online:hover { background-color: rgba(0, 0, 0, 0.8); border-radius: 0% !important; color: white !important; }
 
 .flex-lFgbSz.flex-3B1Tl4.horizontal-2BEEBe.horizontal-2VE-Fw.flex-3B1Tl4.directionRow-yNbSvJ.justifyCenter-29N31w.alignCenter-3VxkQP.noWrap-v6g9vO.avatarHint-2ohlkz.maskProfile-MeBve8.mask-2vyqAW.size10-1ZEdeK.height12-1-l4d8.weightBold-2qbcng, .image-EVRGPw.maskProfile-MeBve8.mask-2vyqAW { border-radius: 0%; -webkit-mask: none; }
 
@@ -291,6 +299,16 @@ If you want to use a custom background image, set the background-image variable 
 
 .timestamp, .topic-1KFf6J { transition: color 0.2s linear; }
 .timestamp:hover, .topic-1KFf6J:hover { color: white !important; }
+
+/* plugin shit */
+
+#dv-mount { background-color: rgba(0, 0, 0, var(--medium-darkness-level)) !important; }
+
+#charcounter { right: 7%; bottom: 30%; }
+
+.kawaii-tag { border-radius: 0% !important; }
+
+/* animations */
 
 @keyframes message-sending-pulse {
     0% { color: #A5A5A5; }
