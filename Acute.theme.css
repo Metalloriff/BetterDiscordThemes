@@ -140,17 +140,33 @@ MentionAliases:
 	transform: translateY(5px);
 }
 
-.iconCollapsed-1INdMX, .iconDefault-xzclSQ, .iconHovered-3PRzOR, .iconHoveredCollapsed-jNYgOD { display: none; }
+.iconCollapsed-1INdMX, .iconDefault-xzclSQ, .iconHovered-3PRzOR, .iconHoveredCollapsed-jNYgOD {
+	display: none;
+}
 
 .nameCollapsed-3_ChMu, .nameDefault-Lnjrwm, .nameHovered-1YFSWq, .nameHoveredCollapsed-2c-EHI {
-	padding: 5px;
-	background-color: var(--light-darkness);
 	text-transform: none;
 	color: white !important;
 	text-align: center;
+	transform: translateX(-12px) !important;
+	line-height: 30px;
 }
 
-.containerDefault-1bbItS, .containerDragAfter-3O-noP, .containerDragBefore-2hcouM, .containerUserOver-3O3u5c { padding-bottom: 25px; }
+.wrapperCollapsed-18mf-c, .wrapperDefault-1Dl4SS, .wrapperHovered-1KDCyZ, .wrapperHoveredCollapsed-25KVVp, .wrapperMuted-PmsxPn, .wrapperUnread-450E16 {
+	height: 30px;
+	background-color: var(--light-darkness);
+	margin-bottom: 5px;
+	margin-top: 15px;
+}
+
+.wrapperHoveredCollapsed-25KVVp, .wrapperCollapsed-18mf-c {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.containerDefault-1bbItS, .containerDragAfter-3O-noP, .containerDragBefore-2hcouM, .containerUserOver-3O3u5c {
+	padding: 3px;
+}
 
 .comment { background: transparent; transition: background var(--fade-time) linear; }
 .comment:hover { background: var(--light-darkness); }
