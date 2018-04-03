@@ -129,6 +129,8 @@ MentionAliases:
 	margin-left: 0px;
 }
 
+.scroller-fzNley { overflow-x: hidden; }
+
 .unread-mentions-indicator-bottom > div, .embedPill-3sYS1X { background-color: var(--primary-color) !important; border-radius: var(--rounding-level) !important; }
 
 .themeGhostHairlineChannels-2lQojW.scrollerFade-28dRsO > div > div > div > div > div > div > svg {
@@ -145,7 +147,7 @@ MentionAliases:
 }
 
 .nameCollapsed-3_ChMu, .nameDefault-Lnjrwm, .nameHovered-1YFSWq, .nameHoveredCollapsed-2c-EHI {
-	text-transform: none;
+	text-transform: capitalize;
 	color: white !important;
 	text-align: center;
 	transform: translateX(-12px) !important;
@@ -182,9 +184,14 @@ MentionAliases:
 
 #app-mount > div.app-XZYfmp.platform-win > div > div.layers-20RVFW.flex-vertical.flex-spacer > div > div > div.guilds-wrapper > div.scroller-wrap > div > div.guild > div, .modal-3HOjGZ, .footer-1PYmcw {
 	background-color: var(--heavy-darkness) !important;
+	transition: background-color var(--fade-time);
 }
 
-#app-mount > div.app-XZYfmp.platform-win > div > div.layers-20RVFW.flex-vertical.flex-spacer > div > div > div.guilds-wrapper > div.scroller-wrap > div > div.guild.active > div {
+#app-mount > div.app-XZYfmp.platform-win > div > div.layers-20RVFW.flex-vertical.flex-spacer > div > div > div.guilds-wrapper > div.scroller-wrap > div > div.guild > div:hover {
+	background-color: var(--primary-color) !important;
+}
+
+#app-mount > div.app-XZYfmp.platform-win > div > div.layers-20RVFW.flex-vertical.flex-spacer > div > div > div.guilds-wrapper > div.scroller-wrap > div > div.guild.active > div:not(:hover) {
 	background-color: var(--secondary-color) !important;
 }
 
@@ -306,27 +313,27 @@ MentionAliases:
 
 .embedInner-t4ag7g { background: var(--light-darkness) !important; border-radius: var(--rounding-level) !important; }
 
-.guild:not(:first-child) { margin-top: 15px !important; }
+.guilds-wrapper .guilds .guild+.guild:not(:first-child) { margin-top: 15px; }
 .guild-inner { border-radius: var(--rounding-level) !important; }
 
-.guild.selected::before {
-	background: var(--secondary-color) !important;
-	height: 100% !important;
-	width: 10% !important;
-	top: 0% !important;
-	left: -10% !important;
-	margin-top: 0% !important;
-	border-radius: var(--rounding-level) !important;
+.guilds-wrapper .guilds .guild.selected:before {
+	background: var(--primary-color) !important;
+	height: 100%;
+	width: 10%;
+	top: 0%;
+	left: -10%;
+	margin-top: 0%;
+	border-radius: var(--rounding-level);
 }
 
-.guild.unread::before {
-	background: var(--primary-color) !important;
-	height: 100% !important;
-	width: 10% !important;
-	top: 0% !important;
-	left: -10% !important;
-	margin-top: 0% !important;
-	border-radius: var(--rounding-level) !important;
+.guilds-wrapper .guilds .guild.unread:before {
+	background: var(--secondary-color);
+	height: 100%;
+	width: 10%;
+	top: 0%;
+	left: -10%;
+	margin-top: 0%;
+	border-radius: var(--rounding-level);
 }
 
 .guilds-wrapper > div.scroller-wrap > div > div.guild.unread.audio > div.badge, .guilds-wrapper > div.scroller-wrap > div > span > div > div.badge {
@@ -394,7 +401,7 @@ MentionAliases:
 	margin: 5px;
 	margin-top: 30px;
 	padding: 5px;
-	text-transform: none;
+	text-transform: capitalize;
 	color: white !important;
 	text-align: center;
 }
@@ -474,8 +481,18 @@ MentionAliases:
 
 .flex-lFgbSz.flex-3B1Tl4.horizontal-2BEEBe.horizontal-2VE-Fw.flex-3B1Tl4.directionRow-yNbSvJ.justifyCenter-29N31w.alignCenter-3VxkQP.noWrap-v6g9vO.avatarHint-2ohlkz.maskProfile-MeBve8.mask-2vyqAW.size10-1ZEdeK.height12-1-l4d8.weightBold-2qbcng, .image-EVRGPw.maskProfile-MeBve8.mask-2vyqAW { border-radius: var(--rounding-level); -webkit-mask: none; }
 
-.toasts { opacity: 0.4; transition: opacity var(--fade-time) linear; border-radius: var(--rounding-level); }
-.toasts:hover { opacity: 1 !important; }
+.toast {
+	opacity: 1;
+	transition: opacity, filter var(--fade-time);
+	border-radius: var(--rounding-level);
+	background: var(--medium-darkness);
+	border-radius: var(--rounding-level);
+}
+
+.toast:hover {
+	opacity: 0.3 !important;
+	filter: blur(2px);
+}
 
 .message-sending > .body > .message-text > .markup {
     color: #A5A5A5 !important;
@@ -494,11 +511,29 @@ MentionAliases:
 	border-radius: var(--rounding-level);
 }
 
+.message-group .message .markup a {
+	color: var(--secondary-color);
+	transition: color var(--fade-time);
+}
+
+.message-group .message .markup a:hover {
+	color: white;
+	text-decoration: none;
+}
+
 .mention { color: var(--primary-color); transition: color var(--fade-time) linear; }
 .mention:hover { color: white !important; }
 
-.timestamp, .topic-1KFf6J { transition: color var(--fade-time) linear; }
-.timestamp:hover, .topic-1KFf6J:hover { color: white !important; }
+.timestamp, .topic-1KFf6J {
+	transition: color var(--fade-time) linear;
+	padding-left: 5px;
+}
+
+.message-group h2 .timestamp { text-transform: uppercase; }
+
+.timestamp:hover, .topic-1KFf6J:hover {
+	color: white !important;
+}
 
 /* Settings */
 
