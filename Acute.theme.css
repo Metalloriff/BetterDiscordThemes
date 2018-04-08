@@ -76,7 +76,7 @@ MentionAliases:
 
 /* Friends */
 
-#friends, .friends-row:hover, .scrollbarGhost-K_3Xa9.scrollbar-11WJwo.hljs, .userSettingsAccount-2WOnTW > div > div {
+#friends, .friends-row:hover, .scrollbarGhost-K_3Xa9.scrollbar-11WJwo.hljs, .userSettingsAccount-2WOnTW > div > div, .backdrop-2ohBEd {
 	background-color: var(--light-darkness) !important;
 	background: var(--light-darkness) !important;
 }
@@ -91,6 +91,18 @@ MentionAliases:
 }
 
 /* Channels */
+
+.innerEnabledNoAttach-36PpAk.inner-3if5cm.flex-3B1Tl4.innerNoAutocomplete-kaUXJZ, .channel.selected.private > a, .innerEnabled-gLHeOL, .contentSelectedText-3j5CXt.content-2mSKOj, .contentHoveredText-2HYGIY.content-2mSKOj {
+	border-left: 5px solid var(--primary-color);
+}
+
+.name-2SL4ev {
+	text-transform: capitalize;
+}
+
+.marginReset-1YolDJ {
+	display: none !important;
+}
 
 .nameHoveredText-2FFqiz { color: white !important; }
 
@@ -325,7 +337,11 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 .embedInner-t4ag7g { background: var(--light-darkness) !important; border-radius: var(--rounding-level) !important; }
 
 .guilds-wrapper .guilds .guild+.guild:not(:first-child) { margin-top: 15px; }
+
 .guild-inner { border-radius: var(--rounding-level) !important; }
+
+.guild { transition: transform 0.5s; }
+.guild:hover, .guild.selected { transform: scale(1.2); }
 
 .guilds-wrapper .guilds .guild.selected:before {
 	background: var(--primary-color) !important;
@@ -577,6 +593,36 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 .theme-dark .autocomplete-1TnWNR, .theme-light .autocomplete-1TnWNR, .theme-dark .selectorSelected-2M0IGv, .theme-light .selectorSelected-2M0IGv {
 	border-radius: 0%;
 	background-color: var(--heavy-darkness);
+}
+
+/* Image Viewer */
+
+.downloadLink-wANcd8 {
+	background-color: var(--primary-color);
+	color: white;
+	opacity: 1;
+	padding: 10px;
+	margin: 10px;
+	transition: background var(--fade-time);
+}
+
+.downloadLink-wANcd8:hover {
+	background-color: var(--secondary-color);
+}
+
+.modal-2LIEKY > div > div {
+	text-align: center;
+	padding: 10px;
+}
+
+.modal-2LIEKY > div > div > .imageWrapper-38T7d9 {
+	text-align: left;
+}
+
+.modal-2LIEKY > div > div > div:nth-child(2) {
+	text-align: center;
+	line-height: 45px;
+	height: 45px;
 }
 
 @keyframes message-sending-pulse {
