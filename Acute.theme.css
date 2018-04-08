@@ -100,8 +100,8 @@ MentionAliases:
 	text-transform: capitalize;
 }
 
-.marginReset-1YolDJ {
-	display: none !important;
+.colorDefaultText-2v6rRX, .colorHoveredText-1CsxK1, .colorLockedText-2onHWv, .colorSelectedText-3YhFC6, .colorUnreadText-1KwCnP {
+	display: none;
 }
 
 .nameHoveredText-2FFqiz { color: white !important; }
@@ -338,7 +338,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .guilds-wrapper .guilds .guild+.guild:not(:first-child) { margin-top: 15px; }
 
-.guild-inner { border-radius: var(--rounding-level) !important; }
+.guilds-wrapper .guilds-add, .guild-inner { border-radius: var(--rounding-level) !important; }
 
 .guild { transition: transform 0.5s; }
 .guild:hover, .guild.selected { transform: scale(1.2); }
