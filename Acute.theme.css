@@ -33,6 +33,7 @@ If you want to use a custom background image, set the background-image variable 
 	--message-spacing: 5px;
 	--show-unread-messages-bar: 1;
 	--rounding-level: 0%;
+	--window-rounding-level: 5px;
 	--fade-time: 0.2s;
 }
 
@@ -96,11 +97,11 @@ MentionAliases:
 	border-left: 5px solid var(--primary-color);
 }
 
-.name-2SL4ev {
+.name-2SL4ev, .channelName-1G03vu {
 	text-transform: capitalize;
 }
 
-.colorDefaultText-2v6rRX, .colorHoveredText-1CsxK1, .colorLockedText-2onHWv, .colorSelectedText-3YhFC6, .colorUnreadText-1KwCnP {
+.colorDefaultText-2v6rRX, .colorHoveredText-1CsxK1, .colorLockedText-2onHWv, .colorSelectedText-3YhFC6, .colorUnreadText-1KwCnP, .titleText-2IfpkV > span > svg {
 	display: none;
 }
 
@@ -154,7 +155,7 @@ MentionAliases:
 	transform: translateY(5px);
 }
 
-.iconCollapsed-1INdMX, .iconDefault-xzclSQ, .iconHovered-3PRzOR, .iconHoveredCollapsed-jNYgOD, .iconMuted-Hb4ttQ {
+.iconCollapsed-1INdMX, .iconDefault-xzclSQ, .iconHovered-3PRzOR, .iconHoveredCollapsed-jNYgOD, .iconMuted-Hb4ttQ, .colorMutedText-2DBGZ2 {
 	display: none;
 }
 
@@ -173,17 +174,18 @@ MentionAliases:
 	margin-top: 15px;
 }
 
-.wrapperHoveredCollapsed-25KVVp, .wrapperCollapsed-18mf-c, .wrapperMuted-PmsxPn {
-	margin-bottom: 0px;
-	margin-top: 0px;
-}
-
 .containerDefault-1bbItS, .containerDragAfter-3O-noP, .containerDragBefore-2hcouM, .containerUserOver-3O3u5c {
 	padding: 3px;
 }
 
-.comment { background: transparent; transition: background var(--fade-time) linear; }
-.comment:hover { background: var(--light-darkness); }
+.message-group {
+	background: transparent; transition: background var(--fade-time) linear;
+	margin-left: 0px;
+	padding-left: 20px;
+	margin-right: 0px;
+	padding-right: 6px;
+}
+.message-group:hover { background: var(--light-darkness); }
 
 .markup { color: white !important; padding-top: var(--message-spacing); }
 
@@ -220,7 +222,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	color: white;
 }
 
-.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer, .message-group-blocked-btn, .message-group-blocked { border-radius: var(--rounding-level) !important; background: var(--medium-darkness) !important; }
+.modal-2LIEKY > div > div, .userPopout-11hFKo, .quickMessage-318jK-.quickMessage-OCo-Q0, .member:hover, .member.member-status.member-status-online.popout-open, .member.member-status.member-status-idle.popout-open, .member.member-status.member-status-dnd.popout-open, .member.member-status.member-status-offline.popout-open, .body-3_tdh6, .topSectionNormal-2LlRG1, .messages-popout-wrap, .messages-popout-wrap > .header, .messages-popout-wrap > .footer, .message-group-blocked-btn, .message-group-blocked { border-radius: var(--window-rounding-level) !important; background: var(--medium-darkness) !important; }
 
 .tooltip {
 	border-radius: var(--rounding-level);
@@ -254,7 +256,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .container-2oOGIt { background-color: var(--heavy-darkness); }
 
-.new-messages-bar { background-color: var(--heavy-darkness) !important; border-radius: var(--rounding-level) !important; }
+.new-messages-bar { background-color: var(--light-darkness) !important; border-radius: var(--rounding-level) !important; }
 
 .scrollbarGhostHairline-D_btXm.scrollbar-11WJwo:focus, .wrapperHoveredText-1PA_Uk.wrapper-fDmxzK, .item-1XYaYf.itemSubMenu-3ZgIw- { background-color: transparent !important; }
 
@@ -267,7 +269,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	border-radius: var(--rounding-level) !important
 }
 
-.innerDisabled-1hSPu_ { background-color: var(--heavy-darkness) !important; border-radius: var(--rounding-level) !important; }
+.theme-dark .inner-3if5cm, .theme-light .inner-3if5cm { background-color: var(--medium-darkness); border-radius: var(--rounding-level); color: transparent; }
 .channelTextAreaDisabled-TBtxS6 { opacity: 1; }
 
 .channel.private, .channel.private > a { background-color: transparent !important; }
@@ -305,6 +307,10 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 }
 
 /* User Popouts */
+
+.theme-dark .note-2AtC_s textarea {
+	background-color: var(--medium-darkness);
+}
 
 .avatarWrapperNormal-JT1DFd.avatarWrapper-39HKca, .avatarWrapperNormal-JT1DFd.avatarWrapper-39HKca > div:nth-child(1) {
 	width: 230px;
@@ -375,30 +381,10 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	line-height: 180%;
 }
 
-.divider:not(.divider-red) { margin-bottom: 5px; margin-top: 5px;  }
-.divider > div, .divider::before { display: none !important; }
-
-.divider.divider-red > span {
-	background-color: var(--medium-darkness) !important;
-	color: var(--secondary-color) !important;
-	opacity: 0.9;
-	border-radius: var(--rounding-level) !important;
-	margin-bottom: 50px;
-	margin-top: 50px;
-	left: 45%;
-	transform: scale(1.25, 1.25);
-}
-
-.divider > span {
-	background-color: var(--medium-darkness) !important;
-	border-radius: var(--rounding-level) !important;
-	color: rgba(255, 255, 255, 0.8) !important;
-}
-
 /* Buttons */
 
 .grow-25YQ8u {
-	border-radius: var(--rounding-level);
+	border-radius: var(--window-rounding-level);
 }
 
 .grow-25YQ8u.lookFilled-luDKDo.colorBrand-3PmwCE, .lookFilled-luDKDo.colorGreen-22At8E {
@@ -475,6 +461,26 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 /* Chat Things */
 
+.divider:not(.divider-red) { margin-bottom: 15px; margin-top: 13px; }
+.divider > div, .divider::before { display: none !important; }
+
+.divider.divider-red > span {
+	background-color: var(--medium-darkness);
+	color: var(--secondary-color) !important;
+	opacity: 0.9;
+	border-radius: var(--rounding-level);
+	margin-bottom: 50px;
+	margin-top: 50px;
+	left: 45%;
+	transform: scale(1.25, 1.25) translateY(11px);
+}
+
+.divider > span {
+	background-color: var(--medium-darkness) !important;
+	border-radius: var(--rounding-level) !important;
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+
 .chat .avatar-large {
 	background-color: var(--medium-darkness);
 	width: var(--chat-avatar-size);
@@ -517,7 +523,6 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	transition: opacity, filter var(--fade-time) !important;
 	border-radius: var(--rounding-level) !important;
 	background: var(--medium-darkness);
-	border-radius: var(--rounding-level) !important;
 }
 
 .toast:hover {
@@ -610,7 +615,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	background-color: var(--secondary-color);
 }
 
-.modal-2LIEKY > div > div {
+.modal-2LIEKY > div > div:not([class]) {
 	text-align: center;
 	padding: 10px;
 }
@@ -619,10 +624,56 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	text-align: left;
 }
 
-.modal-2LIEKY > div > div > div:nth-child(2) {
+.modal-2LIEKY > div > div > div:nth-child(2):not([class]) {
 	text-align: center;
 	line-height: 45px;
 	height: 45px;
+}
+
+/* Upload Window */
+
+.inner-1-09ZV > div.file-XhJJS_ > div.icon-19bbE_.image-sUU6Oh {
+	height: 500px !important;
+	width: 500px !important;
+	margin: 0px !important;
+}
+
+.uploadModal-2KN6Mm .inner-1-09ZV {
+	height: 500px;
+	width: 500px;
+	border: none;
+}
+
+.modal-2LIEKY > div > div > div.inner-1-09ZV > div.file-XhJJS_ > div.icon-19bbE_.image-sUU6Oh {
+	border-radius: var(--rounding-level);
+	border: none;
+}
+
+.inner-1-09ZV > div.comment-1faMgX {
+	top: 82.5%;
+	position: relative;
+}
+
+.uploadModal-2KN6Mm .footer-4pOKm8 {
+	background-color: transparent;
+	height: 100px !important;
+}
+
+.uploadModal-2KN6Mm .footer-4pOKm8 .button {
+	background-color: var(--primary-color) !important;
+	color: white !important;
+	border-radius: var(--rounding-level) !important;
+	margin-left: 10px;
+	margin-right: 10px;
+	top: 71%;
+	right: 30%;
+	transition: background var(--fade-time);
+}
+
+.uploadModal-2KN6Mm .footer-4pOKm8 .button:hover {
+	background-color: var(--secondary-color) !important;
+	opacity: 1;
+	text-decoration: none;
 }
 
 @keyframes message-sending-pulse {
