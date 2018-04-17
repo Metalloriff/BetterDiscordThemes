@@ -119,13 +119,14 @@ MentionAliases:
 .contentUnreadText-3oxASB.content-2mSKOj > div:nth-child(1) > svg, .nameUnreadText-1pxldj.name-2SL4ev.overflowEllipsis-3Rxxjf { color: white !important; opacity: 1 !important; }
 .contentUnreadText-3oxASB.content-2mSKOj { background-color: var(--light-darkness); }
 
-.unread-23Kvxk {
+*:hover > .unread-23Kvxk { display: none; }
+
+*:not(:hover) > .unread-23Kvxk {
 	border-radius: var(--rounding-level);
-	width: 2.5%;
+	width: 5px;
 	height: 32px;
 	top: 1px;
 	margin-top: 0%;
-	left: 96.5%;
 	background-color: var(--secondary-color);
 }
 
@@ -260,9 +261,23 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .scrollbarGhostHairline-D_btXm.scrollbar-11WJwo:focus, .wrapperHoveredText-1PA_Uk.wrapper-fDmxzK, .item-1XYaYf.itemSubMenu-3ZgIw- { background-color: transparent !important; }
 
-::-webkit-scrollbar-track-piece,
-::-webkit-scrollbar-button { background: rgba(0, 0, 0, 0.2) !important; border:none !important; border-radius: var(--rounding-level) !important; }
-::-webkit-scrollbar-thumb{background: var(--medium-darkness) !important; border:none !important; border-radius: var(--rounding-level) !important; }
+::-webkit-scrollbar-track-piece {
+	border: none !important;
+	background: transparent !important;
+}
+
+:hover::-webkit-scrollbar-track-piece {
+	border: none !important;
+	background: var(--medium-darkness) !important;
+}
+
+::-webkit-scrollbar-thumb {
+	border: none !important;
+	background-color: var(--primary-color) !important;
+	border-radius: var(--rounding-level) !important;
+}
+
+::-webkit-scrollbar { max-width: 5px; }
 
 .innerEnabledNoAttach-36PpAk.inner-3if5cm.flex-3B1Tl4.innerNoAutocomplete-kaUXJZ, .channel.selected.private > a, .innerEnabled-gLHeOL, .contentSelectedText-3j5CXt.content-2mSKOj, .contentHoveredText-2HYGIY.content-2mSKOj {
 	background-color: var(--medium-darkness) !important;
@@ -396,7 +411,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 .item-3879bf, .connection-2r9Zua { border-radius: var(--rounding-level) !important; }
 .item-3879bf:hover { background-color: var(--medium-darkness) !important; }
 
-.channels-wrap, .activityFeed-HeiGwL, #friends .headerBar-cxbhPD, .lfg-3xoFkI, .app .guilds .guild.active:first-child, .headerPlaying-2Q7mBy, .userPopout-11hFKo .headerStreaming-lmgoma, .userPopout-11hFKo .body-3ljq11, .userPopout-11hFKo .footer-2wFs91, .headerNormal-3Vn9nT, .headerStreaming-lmgoma, .title-wrap, .members-1bid1J, .private-channel-call, .content .flex-spacer, .friends-table, .friends-header, .headerSpotify-26yUf5, .channels-3g2vYe, #app-mount .titleWrapper-3Vi_wz, .app .guilds .guild:first-child, .members-1bid1J::after, .guilds-wrapper, .ui-standard-sidebar-view, .sidebar-region, .content-region, .members-1bid1J {
+.channels-wrap, .activityFeed-HeiGwL, #friends .headerBar-cxbhPD, .lfg-3xoFkI, .app .guilds .guild.active:first-child, .headerPlaying-2Q7mBy, .userPopout-11hFKo .headerStreaming-lmgoma, .userPopout-11hFKo .body-3ljq11, .userPopout-11hFKo .footer-2wFs91, .headerNormal-3Vn9nT, .headerStreaming-lmgoma, .title-wrap, .members-1bid1J, .private-channel-call, .content .flex-spacer, .friends-table, .friends-header, .headerSpotify-26yUf5, .channels-3g2vYe, #app-mount .titleWrapper-3Vi_wz, .app .guilds .guild:first-child, .members-1bid1J::after, .guilds-wrapper, .ui-standard-sidebar-view, .sidebar-region, .content-region, .members-1bid1J, .noChannel-2EQ0a9 {
     background: rgba(0, 0, 0, var(--global-background-darkness)) !important;
 }
 
@@ -530,6 +545,19 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	filter: blur(2px);
 }
 
+.theme-dark .message-group .comment .message-send-failed .markup, .theme-dark .message-group .comment .message-send-failed a {
+	color: red !important;
+	background-color: var(--medium-darkness);
+	padding: 5px;
+	opacity: 0.6;
+}
+
+.theme-dark .message-group .comment .message-send-failed .markup::after, .theme-dark .message-group .comment .message-send-failed a::after {
+	content: "		-FAILED TO SEND";
+	color: red;
+	position: relative;
+}
+
 .message-sending > .body > .message-text > .markup {
     color: #A5A5A5 !important;
     animation-name: message-sending-pulse;
@@ -559,6 +587,32 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .mention { color: var(--primary-color); transition: color var(--fade-time) linear; }
 .mention:hover { color: white !important; }
+
+/* Reactions */
+
+.theme-dark .reaction {
+	background-color: var(--medium-darkness);
+}
+
+.theme-dark .reaction > .emoji, .theme-dark .reaction.reaction-me > .emoji {
+	min-height: 30px;
+	min-width: 30px;
+	height: 30px;
+	width: 30px;
+}
+
+.theme-dark .reaction > .emoji:hover, .theme-dark .reaction.reaction-me > .emoji:hover { transform: scale(1); }
+
+.theme-dark .reaction.reaction-me { background-color: var(--primary-color); }
+
+.theme-dark .reaction, .theme-dark .reaction.reaction-me { transition: transform var(--fade-time); }
+
+.theme-dark .reaction:hover, .theme-dark .reaction.reaction-me:hover { transform: scale(2); z-index: 100; }
+
+.theme-dark .reaction.reaction-me .reaction-count, .theme-dark .reaction .reaction-count {
+	color: white;
+	line-height: 35px;
+}
 
 .timestamp, .topic-1KFf6J {
 	transition: color var(--fade-time) linear;
