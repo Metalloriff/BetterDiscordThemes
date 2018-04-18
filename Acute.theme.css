@@ -105,7 +105,9 @@ MentionAliases:
 	display: none;
 }
 
-.nameHoveredText-2FFqiz { color: white !important; }
+.nameSelectedText-32NDX5, .nameSelectedVoice-XpjYTw, .nameHoveredText-2FFqiz, .nameHoveredVoice-TIoHRJ {
+	color: var(--primary-color);
+}
 
 .unreadBar-3lDSDn.unread-2TDDFN.active-2wuntj { background-color: var(--medium-darkness) !important; opacity: var(--show-unread-messages-bar); }
 
