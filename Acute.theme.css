@@ -97,6 +97,13 @@ MentionAliases:
 	border-left: 5px solid var(--primary-color);
 }
 
+.unread-23Kvxk { display: none; }
+
+.contentUnreadText-3oxASB, .contentUnreadVoice-1vHNNW {
+	border-left: 5px solid white;
+	border-radius: var(--rounding-level);
+}
+
 .name-2SL4ev, .channelName-1G03vu {
 	text-transform: capitalize;
 }
@@ -105,8 +112,19 @@ MentionAliases:
 	display: none;
 }
 
-.nameSelectedText-32NDX5, .nameSelectedVoice-XpjYTw, .nameHoveredText-2FFqiz, .nameHoveredVoice-TIoHRJ {
+.nameSelectedText-32NDX5, .nameSelectedVoice-XpjYTw, .nameHoveredText-2FFqiz, .nameHoveredVoice-TIoHRJ, :hover > .nameUnreadText-1pxldj {
 	color: var(--primary-color);
+	text-shadow: var(--primary-color) 0 0 15px;
+}
+
+.nameUnreadText-1pxldj, .nameUnreadVoice-QK4gxH {
+	color: white;
+	text-shadow: white 0 0 15px;
+}
+
+.contentSelectedVoice-gTtYM9 > div:nth-child(1) > svg > path, .contentHoveredVoice-3qGNKh > div:nth-child(1) > svg > path {
+	opacity: 1;
+	fill: var(--primary-color);
 }
 
 .unreadBar-3lDSDn.unread-2TDDFN.active-2wuntj { background-color: var(--medium-darkness) !important; opacity: var(--show-unread-messages-bar); }
@@ -118,19 +136,7 @@ MentionAliases:
 }
 .nameDefault-Lnjrwm.colorTransition-2iZaYd.overflowEllipsis-2ynGQq { color: white; }
 
-.contentUnreadText-3oxASB.content-2mSKOj > div:nth-child(1) > svg, .nameUnreadText-1pxldj.name-2SL4ev.overflowEllipsis-3Rxxjf { color: white !important; opacity: 1 !important; }
 .contentUnreadText-3oxASB.content-2mSKOj { background-color: var(--light-darkness); }
-
-*:hover > .unread-23Kvxk { display: none; }
-
-*:not(:hover) > .unread-23Kvxk {
-	border-radius: var(--rounding-level);
-	width: 5px;
-	height: 32px;
-	top: 1px;
-	margin-top: 0%;
-	background-color: var(--secondary-color);
-}
 
 .containerDefault-7RImuF > div {
 	transition: transform var(--fade-time);
@@ -628,8 +634,8 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 }
 
 ::selection {
-	background: var(--primary-color);
-	color: white;
+	color: var(--primary-color);
+	text-shadow: var(--primary-color) 0 0 25px;
 }
 
 .theme-dark .wrapper-uAa07y, .theme-light .wrapper-uAa07y, .theme-dark .attachment-1Vom9D, .theme-light .attachment-1Vom9D {
