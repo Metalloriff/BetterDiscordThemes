@@ -28,7 +28,7 @@ If you want to use a custom background image, set the background-image variable 
 	--global-background-darkness: 0.4;
 	--light-darkness: rgba(0, 0, 0, 0.3);
 	--medium-darkness: rgba(0, 0, 0, 0.5);
-	--heavy-darkness: rgba(0, 0, 0, 0.9);
+	--heavy-darkness: rgba(10, 10, 10, 0.9);
 	--font: Helvetica; /* Default is Whitney */
 	--message-spacing: 5px;
 	--show-unread-messages-bar: 1;
@@ -77,7 +77,8 @@ MentionAliases:
 
 /* Friends */
 
-#friends, .friends-row:hover, .scrollbarGhost-K_3Xa9.scrollbar-11WJwo.hljs, .userSettingsAccount-2WOnTW > div > div, .backdrop-2ohBEd {
+#friends { background: transparent !important; }
+.friends-row:hover, .scrollbarGhost-K_3Xa9.scrollbar-11WJwo.hljs, .userSettingsAccount-2WOnTW > div > div, .backdrop-2ohBEd {
 	background-color: var(--light-darkness) !important;
 	background: var(--light-darkness) !important;
 }
@@ -90,6 +91,40 @@ MentionAliases:
 	background: var(--background-image) !important;
 	background-size: var(--background-type) !important;
 }
+
+.private-channels .channel.selected a, .private-channels .channel:hover a {
+	border-radius: var(--rounding-level);
+	background-color: var(--medium-darkness);
+}
+
+#friends .friends-table {
+	margin-top: 0px;
+}
+
+#app-mount #friends .tab-bar .tab-bar-item {
+	border-radius: var(--rounding-level);
+	padding: 6px;
+}
+
+#app-mount #friends .tab-bar .tab-bar-item:hover {
+	background-color: var(--heavy-darkness);
+}
+
+#app-mount #friends .tab-bar .tab-bar-item.tab-bar-item-primary {
+	background-color: var(--primary-color);
+}
+
+#app-mount #friends .tab-bar .tab-bar-item.selected {
+	background-color: var(--secondary-color);
+	color: white;
+}
+
+#app-mount #friends .friends-table .friends-row .friends-column-actions .friends-action {
+	border-radius: var(--rounding-level);
+	background-color: var(--heavy-darkness);
+}
+
+#app-mount #friends .friends-table .friends-row .friends-column-actions .friends-action:nth-child(3) { background-color: rgb(187, 46, 46); }
 
 /* Channels */
 
@@ -238,24 +273,24 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	background: var(--heavy-darkness);
 }
 
-.action-buttons {
+actionButtons-LKmOj2 {
 	background-color: var(--light-darkness) !important;
 	box-shadow: none !important;
 	border-radius: var(--rounding-level) !important;
 }
 
-.action-buttons > div {
+actionButtons-LKmOj2 > div {
 	border-radius: var(--rounding-level) !important;
 	background-color: var(--primary-color) !important;
 	color: white !important;
 	opacity: 1 !important;
 }
 
-.action-buttons > div > div {
+actionButtons-LKmOj2 > div > div {
 	color: white !important;
 }
 
-.action-buttons > .close-button {
+actionButtons-LKmOj2 > .closeButton-2Rx3ov {
 	height: 18px !important;
 	width: 18px !important;
 	margin-top: 0px !important;
@@ -299,7 +334,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 .channel.private:hover, .channel.private > a:hover { background-color: var(--light-darkness) !important; }
 .channel.selected.private > a { background-color: var(--secondary-color) !important; }
 
-.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light, .theme-dark.popouts > div > div > div.scroller-wrap.dark > div > div { background-color: var(--heavy-darkness) !important; border-radius: var(--rounding-level) !important; }
+.contextMenu-uoJTbz.theme-dark, .contextMenu-uoJTbz.theme-light, .theme-dark.popouts > div > div > div.scroller-wrap.dark > div > div, .menu-3BZuDT { background-color: var(--heavy-darkness) !important; border-radius: var(--rounding-level) !important; }
 .item-1XYaYf:hover { background-color: var(--medium-darkness) !important; border-radius: var(--rounding-level) !important; }
 
 /* user statuses */
@@ -535,7 +570,7 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .image-EVRGPw.mask-2vyqAW { -webkit-mask: none; } /* fuck you, Discord update */
 
-.separator-1hpa3S { border-bottom: 1px solid var(--primary-color) !important; opacity: 0.5; }
+.separator-1hpa3S { border-bottom: 1px solid white !important; opacity: 0.5; }
 
 .menu-3BZuDT, .item-rK1j5B:hover, .friends-online:hover { background-color: rgba(0, 0, 0, 0.8); border-radius: var(--rounding-level) !important; color: white !important; }
 
@@ -655,6 +690,34 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 .barFill-18ABna { background: var(--primary-color) !important; }
 
+#app-mount .cardPrimaryEditable-2IQ7-V {
+	border-radius: var(--rounding-level);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: var(--medium-darkness);
+}
+
+#app-mount .cardPrimaryEditable-2IQ7-V[style*=color] {
+	background-color: var(--primary-color) !important;
+	border-color: transparent !important;
+}
+
+#app-mount .checked-2TahvT {
+	border-color: black !important;
+	border-radius: var(--rounding-level);
+}
+
+#app-mount .checked-2TahvT > svg > g > polyline {
+	stroke: black;
+}
+
+.themeDefault-3M0dJU:not(.valueChecked-3Bzkbm) {
+	background-color: var(--heavy-darkness);
+}
+
+.themeDefault-3M0dJU.valueChecked-3Bzkbm {
+	background-color: var(--primary-color);
+}
+
 /* Auto-complete */
 
 .theme-dark .autocomplete-1TnWNR, .theme-light .autocomplete-1TnWNR, .theme-dark .selectorSelected-2M0IGv, .theme-light .selectorSelected-2M0IGv {
@@ -736,6 +799,79 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 	background-color: var(--secondary-color) !important;
 	opacity: 1;
 	text-decoration: none;
+}
+
+/* Search Window */
+
+.theme-dark .search-results-wrap, .theme-light .search-results-wrap {
+    background: rgba(0, 0, 0, var(--global-background-darkness)) !important;
+}
+
+.search-header, .search-results-wrap .channel-separator .channel-name {
+	background: transparent !important;
+	background-color: transparent !important;
+}
+
+.search-results-wrap .search-result .search-result-message.after, .search-results-wrap .search-result .search-result-message.before, #app-mount > .search-result-message.before, .search-results-wrap .channel-separator:before {
+	display: none;
+}
+
+#app-mount .search-result-message.hit, #app-mount .search .search-bar {
+	background-color: var(--medium-darkness);
+	border-radius: var(--rounding-level);
+	box-shadow: none;
+	border: none;
+}
+
+.search-results-wrap .search-header .total-results {
+	opacity: 1;
+}
+
+/* Emoji Picker */
+
+.emojiPicker-3g68GS {
+	transform: scale(2) translate(-60px, -90px);
+}
+
+#app-mount .emoji-picker, #app-mount .emojiPicker-3g68GS, #app-mount .emoji-picker .header .search-bar {
+	background-color: var(--heavy-darkness);
+}
+
+.search-bar.search-bar-light .search-bar-inner {
+	background-color: rgba(60, 60, 60, 0.3);
+}
+
+.emojiPicker-3g68GS .stickyHeader-3LjM5X, #app-mount .emojiPicker-3g68GS .header-27dQ-e .search-bar, #app-mount .emoji-picker .category, #app-mount .emojiPicker-3g68GS .category-3rCtoh {
+	background: transparent;
+}
+
+#app-mount .emojiPicker-3g68GS .category-3rCtoh {
+	color: white;
+	font-weight: bolder;
+	letter-spacing: 1px;
+	text-transform: capitalize;
+	font-size: 15px;
+	text-shadow: black 0px 0px 5px;
+}
+
+.emojiPicker-3g68GS .scroller-2dsok0 .emojiItem-3l4Fa9 {
+	filter: none !important;
+}
+
+.emojiPicker-3g68GS .scroller-2dsok0 .emojiItem-3l4Fa9.disabled-1mwvoa {
+	filter: none !important;
+	opacity: 0.2;
+}
+
+#app-mount .emoji-picker .scroller .emoji-item.selected, #app-mount .emojiPicker-3g68GS .scroller-2dsok0 .emojiItem-3l4Fa9.selected-1LQfcZ, #app-mount .emoji-picker .scroller .emoji-item.selected.disabled-1mwvoa, #app-mount .emojiPicker-3g68GS .scroller-2dsok0 .emojiItem-3l4Fa9.selected-1LQfcZ.disabled-1mwvoa {
+	background-color: var(--primary-color);
+	transform: scale(1.7);
+	z-index: 100;
+	opacity: 1;
+}
+
+.emojiPicker-3g68GS .categories-jw8z2h .item-lsWB-j.selected-1LQfcZ { 
+	border-bottom-color: var(--primary-color);
 }
 
 @keyframes message-sending-pulse {
