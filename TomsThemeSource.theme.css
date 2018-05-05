@@ -13,7 +13,7 @@
 	--background-image: transparent;
 	--background-type: cover;
 	--chat-avatar-size: 70px;
-	--global-background-darkness: 0.5;
+	--global-background-darkness: 0;
 	--light-darkness: rgba(0, 0, 0, 0.3);
 	--medium-darkness: rgba(0, 0, 0, 0.5);
 	--heavy-darkness: rgba(10, 10, 10, 0.9);
@@ -86,31 +86,32 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 .member-3W1lQa .status-oxiHuE, .avatar-small .status {
 	border-radius: 5px;
 	background-color: transparent;
-	bottom: -1.5px;
-	right: -1.5px;
+	top: 0px;
+	right: 0px;
 	width: 27px;
 	height: 27px;
+	transition: border 2s;
 }
 
-.member-3W1lQa .statusOnline-1FlpW_, .avatar-small .status-online { border: 3px solid var(--online-color); }
-.member-3W1lQa .statusIdle-1XoSCz, .avatar-small .status-idle { border: 3px solid var(--idle-color); }
-.member-3W1lQa .statusDnd-2DDKST, .avatar-small .status-dnd { border: 3px solid var(--dnd-color); }
+#app-mount .statusOnline-1FlpW_, .avatar-small .status-online { border: 3px solid var(--online-color); }
+#app-mount .statusIdle-1XoSCz, .avatar-small .status-idle { border: 3px solid var(--idle-color); }
+#app-mount .statusDnd-2DDKST, .avatar-small .status-dnd { border: 3px solid var(--dnd-color); }
 .avatar-small .status-offline { border: 3px solid #747f8d; }
 
 #app-mount .status-typing, #app-mount .statusTyping-2ed9jJ {
-	bottom: -1.5px !important;
-	right: -1.5px !important;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #app-mount .statusProfile-3ynqtt {
 	z-index: -1;
-	left: -2%;
-	width: 104%;
-	top: -2%;
-	height: 104%;
+	width: 230px;
+	height: 230px;
+	top: -4px;
+	left: -4px;
 	border-radius: 5px;
+	border-width: 5px;
 	box-shadow: none;
+	background-color: transparent;
 }
 
 /* Guild Icons */
@@ -425,11 +426,36 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 /* Members */
 
+#app-mount .membersGroup-v9BXpm {
+	color: white;
+	background-color: var(--light-darkness);
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 7.5px;
+	margin-right: 3px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	line-height: 18px;
+	text-align: center;
+	height: 30px;
+	text-transform: capitalize;
+}
+
+#app-mount .member-3W1lQa .content-OzHfo4 {
+	background: none;
+}
+
 .member-3W1lQa {
 	border-radius: 5px;
 	background: var(--light-darkness);
 	margin-bottom: 5px;
 	width: 95%;
+	transition: all var(--fade-time);
+}
+
+.member-3W1lQa:hover {
+	background-color: var(--heavy-darkness);
+	transform: scale(1.05);
 }
 
 .member-3W1lQa .activityText-sLG0UL {
@@ -453,4 +479,10 @@ div, span:not(.spinner-item) { backface-visibility: hidden; }
 
 #app-mount .contextMenu-HLZMGh {
 	border-radius: 5px;
+}
+
+/* Settings */
+
+#app-mount .description-3_Ncsb, #app-mount .labelDescriptor-1PqHgD {
+	color: white;
 }
