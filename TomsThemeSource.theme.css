@@ -235,10 +235,6 @@
 
 /* Channels */
 
-.channels-Ie2l6A .scroller-2FKFPG > :last-child { /* Fuck lazy loading */
-	height: 9000px;
-}
-
 .wrapperDefaultText-2IWcE8 [class="marginReset-3RfdVe"], .wrapperSelectedText-3dSUjC [class="marginReset-3RfdVe"], .wrapperMutedText-1YBpvv [class="marginReset-3RfdVe"], .wrapperUnreadText-2zuiuD [class="marginReset-3RfdVe"], .wrapperHoveredText-2geN_M [class="marginReset-3RfdVe"], .unread-1Dp-OI { display: none; }
 
 #app-mount .iconSpacing-3JkGQO .wrapper-232cHJ {
@@ -417,6 +413,18 @@
 #app-mount .message-group-blocked-btn {
 	background: var(--light-darkness);
 	color: white;
+}
+
+#app-mount .base-34jWEe h1 {
+	color: white;
+	background: var(--light-darkness);
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#app-mount .base-34jWEe h1 strong {
+	color: var(--primary-color);
 }
 
 /* DMs */
