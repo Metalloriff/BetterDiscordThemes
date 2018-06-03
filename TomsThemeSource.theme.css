@@ -12,7 +12,7 @@
 	--idle-color: #ffcb21;
 	--dnd-color: #ff2d38;
 	--offline-color: #191919;
-	--background-image: transparent;
+	--background-image: rgb(30, 30, 30);
 	--background-type: cover;
 	--avatar-rounding: 5px;
 	--chat-avatar-size: 70px;
@@ -60,7 +60,7 @@
 }
 
 #app-mount .inner-zqa7da {
-	background-color: var(--light-darkness);
+	background-color: transparent;
 	border-radius: 5px;
 }
 
@@ -69,13 +69,12 @@
 }
 
 .container-1UB9sr, .container-2Thooq {
-	border-radius: 5px;
-	background-color: var(--light-darkness);
-	padding-left: 15px;
-	margin-right: 11px;
-	margin-left: 2px;
-	margin-bottom: 5px;
+	background-color: transparent;
 	border: none;
+}
+
+[style$="background-color: rgb(114, 137, 218);"] {
+	background-color: var(--primary-color) !important;
 }
 
 /* User Popouts */
@@ -135,7 +134,7 @@
 
 /* User Avatars */
 
-.mask-3OgeRz, .chat .avatar-large, .avatar-small, .avatar-xxlarge, .image-33JSyf, .avatarDefault-35WC3R, .avatarSpeaking-1wJCNq {
+.mask-3OgeRz, .chat .avatar-large, .avatar-small, .avatar-xxlarge, .image-33JSyf, .avatarDefault-35WC3R, .avatarSpeaking-1wJCNq, .placeholderAvatar-uzH8f6 {
     -webkit-mask: none;
 	border-radius: var(--avatar-rounding);
 }
@@ -158,10 +157,10 @@
 	transition: border 2s;
 }
 
-#app-mount .statusOnline-1FlpW_, .avatar-small .status-online { border: 3px solid var(--online-color); }
-#app-mount .statusIdle-1XoSCz, .avatar-small .status-idle { border: 3px solid var(--idle-color); }
-#app-mount .statusDnd-2DDKST, .avatar-small .status-dnd { border: 3px solid var(--dnd-color); }
-.avatar-small .status-offline { border: 3px solid #747f8d; }
+#app-mount .statusOnline-1FlpW_, #app-mount .avatar-small .status-online { border: 3px solid var(--online-color); }
+#app-mount .statusIdle-1XoSCz, #app-mount .avatar-small .status-idle { border: 3px solid var(--idle-color); }
+#app-mount .statusDnd-2DDKST, #app-mount .avatar-small .status-dnd { border: 3px solid var(--dnd-color); }
+#app-mount .avatar-small .status-offline { border: 3px solid #747f8d; }
 
 #app-mount .status-typing, #app-mount .statusTyping-2ed9jJ {
 	background-color: rgba(0, 0, 0, 0.5);
@@ -206,19 +205,19 @@
 
 #app-mount .guild.selected::before {
 	content: "";
-	border-radius: var(--avatar-rounding);
-	width: 100%;
-	height: 100%;
-	top: -3px;
-	left: -3px;
-	margin: 0px;
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid var(--primary-color);
 	position: absolute;
-	border: 3px solid var(--primary-color);
-	background: var(--primary-color);
+	top: 30px;
+	left: -20px;
+	background: none;
 }
 
 .guild.selected, .guild:hover {
-	transform: translateX(5px);
+	transform: translateX(10px);
 }
 
 .guild-inner {
@@ -367,6 +366,12 @@
 	margin-bottom: 10px;
 }
 
+#app-mount .message-group.is-local-bot-message {
+	background: var(--unread-color);
+	background-image: none;
+	box-shadow: none;
+}
+
 #app-mount .message-text .markup {
 	color: white;
 }
@@ -458,6 +463,12 @@
 	color: var(--primary-color);
 }
 
+#app-mount .mention {
+	color: var(--primary-color);
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 5px var(--primary-color);
+}
+
 /* DMs */
 
 .channel.private {
@@ -513,6 +524,21 @@
 
 /* Members */
 
+/*
+
+.content .flex-spacer, .base-3dtUhz {
+	overflow: visible;
+}
+
+.membersWrap-2h-GB4, .guilds-wrapper {
+	margin-bottom: 94px;
+}
+
+.container-1UB9sr, .container-2Thooq {
+	width: 363px;
+	transform: translateX(-88px);
+} */
+
 #app-mount .membersGroup-v9BXpm {
 	color: white;
 	background-color: var(--light-darkness);
@@ -526,6 +552,7 @@
 	text-align: center;
 	height: 30px;
 	text-transform: capitalize;
+	cursor: default;
 }
 
 #app-mount .member-3W1lQa .content-OzHfo4 {
@@ -567,6 +594,10 @@
 	margin-right: 10px;
 }
 
+.botTagRegular-2HEhHi {
+	background-color: var(--primary-color);
+}
+
 /* Context Menus & Popouts */
 
 .popout-3sVMXz {
@@ -579,8 +610,8 @@
 	left: -2000px;
 	position: fixed;
 	right: -2000px;
-	top: -1000px;
-	bottom: -1000px;
+	top: -2000px;
+	bottom: -2000px;
 	z-index: -1;
 	pointer-events: none;
 	background-color: var(--medium-darkness);
@@ -689,6 +720,18 @@
 #app-mount .switch-3wwwcV {
 	width: 23px;
 	height: 23px;
+}
+
+/* Auto-complete */
+
+.theme-dark .autocomplete-1vrmpx {
+	background: linear-gradient(0deg, transparent 0%, var(--popout-background-color) 5%);
+	padding-bottom: 15px;
+	width: 400px;
+}
+
+.theme-dark .selectorSelected-1_M1WV {
+	background: var(--light-darkness);
 }
 
 /* Animations */
