@@ -1,0 +1,105 @@
+//META{"name":"BetterLightTheme","description":"Improves the light theme, making it actually light.","author":"Metalloriff","version":"1.0"}*//
+
+#app-mount {
+    background-color: #7289da;
+}
+
+.base-3dtUhz {
+    border-radius: 0px;
+}
+
+.bda-slist li {
+    background: #d4d4d4;
+    border: none;
+}
+
+#bd-settingspane-container .bda-header-title {
+    color: black;
+}
+
+#bd-settingspane-container .bda-description {
+    color: #2b2a2a;
+}
+
+#app-mount .ui-switch, #bd-settingspane-container .ui-switch-item .ui-switch-wrapper .ui-switch, .themeDefault-24hCdX {
+    background: #adadad;
+}
+
+#app-mount .status {
+    border: none;
+}
+
+.container-PNkimc, .channels-Ie2l6A, .container-1UB9sr, .container-2Thooq, .guilds-wrapper {
+	background-color: #f3f3f3;
+	border-bottom: none;
+}
+
+.header-2o-2hj {
+    box-shadow: 0 1px 0 #eceeef, 0 2px 0 hsla(200,9%,93%,.25);
+}
+
+.guilds-wrapper .guilds .guild .guild-inner {
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+.name-3YKhmS, .channel.private .channel-name, .inner-btChU7 .channel-SEolQq, .accountDetails-3k9g4n .discriminator, .guilds-wrapper .guilds .friends-online, .private-channels header {
+	color: black;
+}
+
+#app-mount .header-2o-2hj svg, .button-2b6hmh, .buttonInfo-3nkbOt, .buttonDisconnect-3W_SJc, .theme-light .btn-friends {
+	filter: brightness(0%);
+}
+
+.guilds-wrapper .guilds .guild.unread:before, .guilds-wrapper .guilds .guild.selected:before {
+	background: #7289da;
+}
+
+.unread-1Dp-OI {
+	background-color: #7289da;
+}
+
+.foreground-2W-aJk {
+	opacity: 0.8;
+	fill: black;
+}
+
+.contentSelectedText-3wUhMi svg, .contentSelectedText-3wUhMi .foreground-2W-aJk, .contentHoveredText-2D9B-x svg, .contentHoveredVoice-3p_NEO:active svg, .contentSelectedVoice-1WDIBM:active svg, .contentHoveredText-2D9B-x .foreground-2W-aJk, .contentHoveredVoice-3p_NEO:active .foreground-2W-aJk, .contentSelectedVoice-1WDIBM:active .foreground-2W-aJk, .contentUnreadText-2vNnZc svg, .contentUnreadText-2vNnZc .foreground-2W-aJk {
+	opacity: 1;
+	fill: white;
+}
+
+.nameHoveredText-1uO31y {
+	color: white;
+}
+
+.contentHoveredText-2D9B-x, .contentHoveredVoice-3p_NEO:active, .contentSelectedVoice-1WDIBM:active, .guilds-wrapper .guilds .guild.audio .guild-inner:after, .guilds-wrapper .guilds .guild.video .guild-inner:after, .guilds-wrapper .guilds .friends-icon, .guilds-wrapper .guild-separator:after, .guilds-wrapper .guilds-add, .private-channels .channel:hover a {
+	background-color: #d4d4d4;
+}
+
+.guilds-wrapper .guilds-error {
+	background-color: #d3bcbc;
+}
+
+.contentSelectedText-3wUhMi, .private-channels .channel.selected a {
+	background-color: #7289da;
+}
+
+.private-channels .channel.selected a .channel-name, .private-channels .channel:hover a .channel-name {
+	color: white;
+}
+
+.scroller-2FKFPG::-webkit-scrollbar-thumb {
+	background-color: #7289da !important;
+}
+
+.contentUnreadText-2vNnZc {
+	background-color: rgba(113, 136, 217, 0.549);
+}
+
+.nameUnreadText-DfkrI4 {
+	color: white;
+}
+
+.theme-light .btn-friends:hover, .private-channels .channel.selected {
+	filter: none;
+}
