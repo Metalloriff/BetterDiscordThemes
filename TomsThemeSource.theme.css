@@ -317,6 +317,10 @@
 	font-weight: bolder;
 }
 
+[class*=botTagRegular] {
+	background-color: var(--primary-color);
+}
+
 /* Channels */
 
 :not([class*=Voice]) > [class*=marginReset] > svg {
@@ -615,10 +619,6 @@
 [class*=members] [class*=member-] [class*=memberInner] {
 	width: 160px;
 	margin-right: 10px;
-}
-
-[class*=botTagRegular] {
-	background-color: var(--primary-color);
 }
 
 /* Context Menus & Popouts */
