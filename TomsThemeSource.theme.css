@@ -51,11 +51,6 @@
 	background: transparent;
 }
 
-/* .layer-3QrUeG, .layers-3iHuyZ, .guilds-wrapper, .channels-Ie2l6A, .chat, .title-3qD0b-, .content, .messages-wrapper, .chat form, .sidebar-region, .content-region, .scroller-2FKFPG, .container-PNkimc, .container-PNkimc, #friends, .headerBar-UHpsPw, .friends-table, .typing-2GQL18, .container-2lgZY8, .members-1998pB {
-	background: transparent !important;
-	background-color: transparent !important;
-} */
-
 .chat div, .chat span { backface-visibility: hidden; }
 
 #app-mount .toast {
@@ -90,7 +85,7 @@
 	padding-top: 4px;
 }
 
-.chat [class*=title-], [class*=header-] {
+.chat [class*=title-] {
 	background: var(--light-darkness);
 }
 
