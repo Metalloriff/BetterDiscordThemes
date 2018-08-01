@@ -47,7 +47,7 @@
 	background: rgba(0, 0, 0, var(--global-background-darkness));
 }
 
-#app-mount [class*=layer], #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount .chat, #app-mount [class*=channels], #app-mount [class*=container], .guilds-wrapper, #app-mount .chat > .content, #app-mount .messages-wrapper, #app-mount .chat form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar], [class*=theme-] [class*=activityFeed] {
+#app-mount [class*=layer], #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount .chat, #app-mount [class*=channels], :not(.messages) [class*=container], #app-mount .chat > .content, #app-mount .messages-wrapper, #app-mount .chat form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar], [class*=theme-] [class*=activityFeed] {
 	background: transparent;
 }
 
@@ -126,7 +126,6 @@
 
 [class*=modal] > [class*=inner] {
 	border-radius: 5px;
-	background-color: var(--popout-background-color);
 }
 
 [class*=modal] > [class*=inner] > [class*=root] > [class*=body] {
@@ -153,12 +152,14 @@
 
 /* User Avatars */
 
-[class*=mask], .chat .avatar-large, .avatar-small, .avatar-xxlarge, [class*=image-], [class*=channels] [class*=avatar] {
+[class*=mask], .chat [class*=large-], .avatar-small, .avatar-xxlarge, [class*=image-], [class*=channels] [class*=avatar] {
 	-webkit-mask: none;
 	border-radius: var(--avatar-rounding);
+	margin: 0;
+	margin-right: 10px;
 }
 
-.chat .avatar-large {
+.chat [class*=large-] {
 	width: var(--chat-avatar-size);
 	height: var(--chat-avatar-size);
 	background-size: cover;
@@ -236,18 +237,18 @@
 
 /* Guild Icons */
 
-.guilds.scroller {
+#app-mount [class*=guildsWrapper] {
 	background: var(--light-darkness);
 }
 
-.guild {
+[class*=guilds-] > [class*=guild-] {
 	margin-bottom: 15px;
 	transition: transform var(--fade-time);
 }
 
-.guild.unread:not(.selected)::before { display: none; }
+[class*=guilds-] > [class*=guild-][class*=unread]:not(.selected)::before { display: none; }
 
-.guild.unread::after {
+[class*=guilds-] > [class*=guild-][class*=unread]::after {
 	content: "";
 	border-radius: 100%;
 	width: 15px;
@@ -258,28 +259,28 @@
 	background: var(--unread-color);
 }
 
-#app-mount .guild.selected::before {
+#app-mount [class*=guilds-] > [class*=guild-][class*=selected]::before {
 	content: "";
 	width: 0;
 	height: 0;
 	border-top: 15px solid transparent;
 	border-bottom: 15px solid transparent;
 	border-left: 15px solid var(--primary-color);
-	position: absolute;
+	[class*=guildInner-]
 	top: 30px;
 	left: -20px;
 	background: none;
 }
 
-.guild.selected, .guild:hover {
+[class*=guilds-] > [class*=guild-][class*=selected], [class*=guilds-] > [class*=guild-]:hover {
 	transform: translateX(10px);
 }
 
-.guild-inner {
+[class*=guildInner-] {
 	border-radius: var(--avatar-rounding) !important;
 }
 
-.guilds-wrapper {
+[class*=guildsWrapper-] {
 	width: 88px;
 }
 
@@ -316,6 +317,7 @@
 	padding: 3px;
 	letter-spacing: 0.8px;
 	font-weight: bolder;
+	margin-left: 5px;
 }
 
 [class*=botTagRegular] {
@@ -402,7 +404,7 @@
 
 /* Chat Messages */
 
-.message-group {
+.messages.scroller > [class*=container-] {
 	margin: 0px;
 	margin-top: 10px;
 	padding: 20px 20px;
@@ -411,21 +413,30 @@
 	border-radius: 5px;
 	width: 98%;
 	margin-left: 1%;
+	min-height: 108px;
 }
 
-.message-group.has-divider {
+.messages.scroller > [class*=container-] hr {
+	display: none;
+}
+
+.messages.scroller > [class*=container-].has-divider {
 	margin-bottom: 10px;
 }
 
-#app-mount .message-group.is-local-bot-message {
+#app-mount .messages.scroller > [class*=container-].is-local-bot-message {
 	background: var(--unread-color);
 	background-image: none;
 	box-shadow: none;
 }
 
-#app-mount .message-text .markup {
+#app-mount [class*=markup] {
 	color: white;
 	margin-right: 40px;
+}
+
+[class*=message] [class*=container] {
+	margin-left: 5px;
 }
 
 #app-mount .timestamp {
@@ -474,31 +485,31 @@
 
 .chat img { border-radius: 5px; }
 
-#app-mount .message-group-blocked {
+#app-mount .messages.scroller > [class*=container-]-blocked {
 	margin: 20px 0px;
 	margin-bottom: 40px;
 	width: 98%;
 	margin-left: 1%;
 }
 
-#app-mount .message-group-blocked:not(.revealed) {
+#app-mount .messages.scroller > [class*=container-]-blocked:not(.revealed) {
 	height: 10px;
 	background: transparent;
 	border: none;
 	border-radius: 5px;
 }
 
-#app-mount .message-group-blocked.revealed {
+#app-mount .messages.scroller > [class*=container-]-blocked.revealed {
 	background: var(--medium-darkness);
 	border: none;
 }
 
-#app-mount .message-group-blocked.revealed .message-group {
+#app-mount .messages.scroller > [class*=container-]-blocked.revealed .messages.scroller > [class*=container-] {
 	width: 95%;
 	margin-bottom: 20px;
 }
 
-#app-mount .message-group-blocked-btn {
+#app-mount .messages.scroller > [class*=container-]-blocked-btn {
 	background: var(--light-darkness);
 	color: white;
 }
@@ -521,12 +532,12 @@
 	box-shadow: 5px var(--primary-color);
 }
 
-.chat .markup a {
+.chat [class*=markup] a {
 	color: var(--primary-color);
 	transition: text-shadow var(--fade-time);
 }
 
-.chat .markup a:hover {
+.chat [class*=markup] a:hover {
 	text-decoration: none;
 	text-shadow: var(--primary-color) 0 0 5px;
 }
@@ -540,11 +551,7 @@
 	opacity: 0.7;
 }
 
-.message-group .message.mentioned .message-text {
-	background: none;
-}
-
-.message-group .message.mentioned .message-text::before {
+[class*=isMentioned]::before {
 	content: "";
 	background: linear-gradient(90deg, var(--primary-color), transparent);
 	opacity: 0.25;
@@ -554,9 +561,10 @@
 	left: -2px;
 	bottom: 0;
 	right: 0;
+	z-index: -1;
 }
 
-.message-group .mentioned .message-text:after {
+[class*=isMentioned]:after {
 	border-left: 5px solid var(--primary-color);
 	background: none;
 }
@@ -713,7 +721,7 @@
 }
 
 [class*=titleText] {
-	width: 100%;
+	overflow: visible;
 	height: 30px;
 }
 
@@ -973,6 +981,14 @@
 }
 
 /* Auto-complete */
+
+[class*=autocomplete-] [class*=icon-] {
+	width: 64px;
+}
+
+[class*=autocomplete-] [class*=marginLeft8] {
+	margin-left: 20px;
+}
 
 [class*=theme-] [class*=autocomplete-] {
 	background: linear-gradient(0deg, transparent 0%, var(--popout-background-color) 5%);
