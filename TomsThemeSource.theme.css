@@ -27,9 +27,9 @@
 	--fade-time: 0.3s;
 }
 
-* { font-family: var(--font) !important; }
-
 /* Main */
+
+#app-mount, ::-webkit-input-placeholder, body, button, input, select, textarea { font-family: var(--font); }
 
 #app-mount::before {
 	content: "";
