@@ -6,7 +6,6 @@
 
 :root {
 	--primary-color: #238aff;
-	--secondary-color: violet;
 	--unread-color: #ff4747;
 	--online-color: #009dff;
 	--idle-color: #ffcb21;
@@ -21,7 +20,7 @@
 	--light-darkness: rgba(0, 0, 0, 0.3);
 	--medium-darkness: rgba(0, 0, 0, 0.5);
 	--heavy-darkness: rgba(10, 10, 10, 0.9);
-	--popout-background-color: #191919;
+	--popout-background-color: #111111;
 	--font: Helvetica; /* Default is Whitney */
 	--message-spacing: 5px;
 	--fade-time: 0.3s;
@@ -47,7 +46,7 @@
 	background: rgba(0, 0, 0, var(--global-background-darkness));
 }
 
-#app-mount [class*=layer], #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount [class^=chat-], #app-mount [class*=channels], :not(.messages) [class*=container], #app-mount [class^=chat-] > [class*=content], #app-mount [class*=chat-] [class*=messagesWrapper], #app-mount [class^=chat-] form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar], [class*=theme-] [class*=activityFeed] {
+#app-mount [class*=layer]:not(#user-settings), #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount [class^=chat-], #app-mount [class*=channels], :not(.messages) [class*=container], #app-mount [class^=chat-] > [class*=content], #app-mount [class*=chat-] [class*=messagesWrapper], #app-mount [class^=chat-] form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar], [class*=theme-] [class*=activityFeed] {
 	background: transparent;
 }
 
@@ -128,8 +127,12 @@
 	border-radius: 5px;
 }
 
+[class^=modal] > [class^=inner] {
+	background: var(--popout-background-color);
+}
+
 [class*=modal] > [class*=inner] > [class*=root] > [class*=body] {
-	background-color: transparent;
+	background-color: var(--popout-background-color);
 	height: 400px;
 }
 
@@ -148,6 +151,38 @@
 
 [class*=modal] > [class*=inner] [class*=topSectionPlaying], [class*=modal] > [class*=inner] [class*=lookFilled] {
 	background-color: var(--primary-color);
+}
+
+[class^=modal] [class^=imageWrapper] {
+	background: var(--popout-background-color);
+	padding: 50px;
+	border-radius: 5px;
+}
+
+[class^=modal] [class^=imageWrapper] > img {
+	border-radius: 5px;
+}
+
+[class^=modal] [class*=downloadLink] {
+	opacity: 1;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 20px;
+}
+
+[class^=modal] [class*=downloadLink]:hover::after {
+	content: attr(href);
+	position: absolute;
+	transform: translate(-56%, -60px);
+	background: var(--primary-color);
+	padding: 10px 15px;
+	border-radius: 5px;
+	max-width: 75%;
+	font-size: 15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 /* User Avatars */
@@ -246,7 +281,7 @@
 	transition: transform var(--fade-time);
 }
 
-[class*=guilds-] > [class*=guild-][class*=unread]:not(.selected)::before { display: none; }
+[class*=guilds-] > [class*=guild-][class*=unread]:not([class*=selected])::before { display: none; }
 
 [class*=guilds-] > [class*=guild-][class*=unread]::after {
 	content: "";
@@ -261,53 +296,87 @@
 
 #app-mount [class*=guilds-] > [class*=guild-][class*=selected]::before {
 	content: "";
-	width: 0;
-	height: 0;
-	border-top: 15px solid transparent;
-	border-bottom: 15px solid transparent;
-	border-left: 15px solid var(--primary-color);
-	[class*=guildInner-]
-	top: 30px;
-	left: -20px;
-	background: none;
+	position: absolute;
+	background: linear-gradient(to right, var(--primary-color), transparent 50%);
+	height: 100%;
+	width: 50%;
+	top: 20px;
+	border-radius: 0;
 }
 
-[class*=guilds-] > [class*=guild-][class*=selected], [class*=guilds-] > [class*=guild-]:hover {
-	transform: translateX(10px);
+#app-mount [class*=guilds-] > [class*=guild-][class*=selected]:first-child:before {
+	width: 0;
+}
+
+[class*=guilds-] > [class*=guild-][class*=selected]:not(:first-child), [class*=guilds-] > [class*=guild-]:not(:first-child):hover {
+	transform: translateX(5px);
 }
 
 [class*=guildInner-] {
 	border-radius: var(--avatar-rounding) !important;
+	background-color: var(--heavy-darkness) !important;
+}
+
+[class^=guilds] > [class^=guild]:first-child > [class^=guildInner] {
+	background-color: transparent !important;
+	overflow: visible;
+}
+
+[class^=guilds] > [class^=guild]:first-child > [class^=guildInner] svg {
+	transition: all var(--fade-time);
+}
+
+[class^=guilds] > [class^=guild][class*=selected]:first-child > [class^=guildInner] svg {
+	color: var(--primary-color);
+	filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+[class^=guilds] > [class^=guild]:not([class*=selected]):first-child:hover > [class^=guildInner] svg {
+	filter: drop-shadow(0 0 10px white);
+	color: white;
 }
 
 [class*=guildsWrapper-] {
 	width: 88px;
 }
 
+[class*=theme-] [class^=friendsOnline] {
+	text-transform: capitalize;
+	font-size: 12px;
+	color: white;
+	text-shadow: 2px 1px 5px white;
+}
+
+[class*=theme-] [class^=guildSeparator]:after {
+	background: white;
+	width: 100%;
+	left: 0;
+}
+
 /* Scrollbars */
 
-#app-mount *::-webkit-scrollbar {
+#app-mount ::-webkit-scrollbar {
 	max-width: 10px;
 }
 
-#app-mount *::-webkit-scrollbar-track-piece {
+#app-mount ::-webkit-scrollbar-track-piece {
 	background: transparent;
 	border: none;
 	border-radius: 5px;
 }
 
-#app-mount *:hover::-webkit-scrollbar-track-piece {
+#app-mount :hover::-webkit-scrollbar-track-piece {
 	background: var(--light-darkness);
 	border-radius: 5px;
 }
 
-#app-mount *::-webkit-scrollbar-thumb {
+#app-mount ::-webkit-scrollbar-thumb {
 	background: var(--primary-color);
 	border: none;
 	border-radius: 5px;
 }
 
-#app-mount *::-webkit-scrollbar-button {
+#app-mount ::-webkit-scrollbar-button {
 	display: none;
 }
 
@@ -458,7 +527,7 @@
 	color: white;
 	line-height: 20px;
 	border-radius: 5px;
-	margin-left: 9px;
+	margin-left: 18px;
 }
 
 #app-mount [class*=dividerRed] span {
@@ -857,15 +926,17 @@
 }
 
 [class*=members] [class*=member-] [class*=activityText] {
-	color: var(--secondary-color);
-}
-
-[class*=members] [class*=content] {
-	flex-direction: row-reverse;
+	color: var(--primary-color);
+	font-weight: bolder;
 }
 
 [class*=members] [class*=member-] [class*=activityText] strong {
 	color: white;
+	font-weight: lighter;
+}
+
+[class*=members] [class*=content] {
+	flex-direction: row-reverse;
 }
 
 [class*=members] [class*=member-] [class*=avatarWrapper] {
@@ -894,12 +965,16 @@
 	animation: fade-to-medium var(--fade-time);
 }
 
+[class^=popout] {
+	overflow: visible !important;
+}
+
 [class*=contextMenu] {
 	border-radius: 5px;
 	padding: 10px;
 }
 
-[class*=contextMenu], [class*=contextMenu] [class*=itemSubMenu], #app-mount [class*=menu-] {
+[class*=theme-][class*=contextMenu], [class*=contextMenu] [class*=itemSubMenu] > [class^=contextMenu], #app-mount [class*=menu-] {
 	background-color: var(--popout-background-color);
 }
 
@@ -944,6 +1019,10 @@
 }
 
 /* Settings */
+
+#user-settings {
+	background: var(--medium-darkness);
+}
 
 [class*=group-], [class*=switchItem-] {
 	background: var(--light-darkness);
@@ -1002,6 +1081,76 @@
 	height: 23px;
 }
 
+[class*=theme-] [class*=cardPrimary] {
+	border-radius: 5px;
+	border: none;
+	background: var(--medium-darkness);
+}
+
+[class*=theme-] [class^=itemDefault], #bd-settings-sidebar .ui-tab-bar-item {
+	background: none;
+	color: white;
+}
+
+[class*=theme-] [class^=side] [class^=itemDefault]:hover, #bd-settings-sidebar .ui-tab-bar-item:not(.selected):hover {
+	background: white;
+	color: black;
+}
+
+[class^=side] [class^=itemSelected], #bd-settings-sidebar .ui-tab-bar-item.selected {
+	background: var(--primary-color);
+}
+
+#user-settings [class^=itemDefault][style] {
+	background: transparent !important;
+}
+
+#user-settings .sidebar-region {
+	flex: none;
+}
+
+.content-region-scroller > .default {
+	max-width: 100%;
+	margin: 0 10%;
+}
+
+#user-settings [class^=header], #bd-settings-sidebar .ui-tab-bar-header {
+	text-transform: capitalize;
+	color: var(--primary-color);
+	font-size: 20px;
+	margin-bottom: 10px;
+	font-weight: bolder;
+}
+
+.bda-slist li {
+	border: none;
+	background: var(--medium-darkness);
+	transition: box-shadow var(--fade-time);
+}
+
+.bda-slist li:hover, .bda-slist .settings-open {
+	box-shadow: 0 0 10px var(--primary-color);
+}
+
+.bd-pfbtn, .bda-slist .bda-footer button {
+	background: var(--primary-color);
+	padding: 5px;
+	transform: translateY(-2px);
+	font-size: 15px;
+}
+
+.bda-slist .bda-footer a {
+	color: var(--primary-color);
+}
+
+#bd-settingspane-container .ui-switch-item .ui-switch-wrapper .ui-switch {
+	background: black;
+}
+
+#bd-settingspane-container .ui-switch-item .ui-switch-wrapper .ui-switch.checked {
+	background: var(--primary-color);
+}
+
 /* Auto-complete */
 
 [class*=autocomplete-] [class*=icon-] {
@@ -1020,6 +1169,15 @@
 
 [class*=theme-] [class*=selectorSelected-] {
 	background: var(--light-darkness);
+}
+
+[class*=lookFilled][class*=colorBrand] {
+	background-color: var(--primary-color);
+}
+
+[class*=lookFilled][class*=colorBrand]:hover {
+	background-color: white;
+	color: black;
 }
 
 /* Animations */
