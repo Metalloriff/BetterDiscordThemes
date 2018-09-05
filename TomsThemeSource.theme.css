@@ -42,11 +42,23 @@
 	filter: blur(var(--background-blur));
 }
 
+[class^=backdrop]::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: var(--background-image);
+	background-size: var(--background-type);
+	filter: blur(15px);
+}
+
 .app {
 	background: rgba(0, 0, 0, var(--global-background-darkness));
 }
 
-#app-mount [class*=layer]:not(#user-settings), #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount [class^=chat-], #app-mount [class*=channels], :not(.messages) [class*=container], #app-mount [class^=chat-] > [class*=content], #app-mount [class*=chat-] [class*=messagesWrapper], #app-mount [class^=chat-] form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar], [class*=theme-] [class*=activityFeed] {
+#app-mount [class*=layer]:not(#user-settings), #app-mount [class*=content-region], #app-mount [class*=sidebar-region], #app-mount [class*=sidebar-view], #app-mount [class^=chat-], #app-mount [class*=channels], :not(.messages) [class*=container], #app-mount [class^=chat-] > [class*=content], #app-mount [class*=chat-] [class*=messagesWrapper], #app-mount [class^=chat-] form, #app-mount [class*=members], #app-mount [class*=typing-], #app-mount #friends, #friends .friends-table, #app-mount [class*=headerBar]:not([class*=headerBarDrag]), [class*=theme-] [class*=activityFeed] {
 	background: transparent;
 }
 
@@ -127,10 +139,6 @@
 	border-radius: 5px;
 }
 
-[class^=modal] > [class^=inner] {
-	background: var(--popout-background-color);
-}
-
 [class*=modal] > [class*=inner] > [class*=root] > [class*=body] {
 	background-color: var(--popout-background-color);
 	height: 400px;
@@ -151,16 +159,6 @@
 
 [class*=modal] > [class*=inner] [class*=topSectionPlaying], [class*=modal] > [class*=inner] [class*=lookFilled] {
 	background-color: var(--primary-color);
-}
-
-[class^=modal] [class^=imageWrapper] {
-	background: var(--popout-background-color);
-	padding: 50px;
-	border-radius: 5px;
-}
-
-[class^=modal] [class^=imageWrapper] > img {
-	border-radius: 5px;
 }
 
 [class^=modal] [class*=downloadLink] {
@@ -274,6 +272,7 @@
 
 #app-mount [class*=guildsWrapper] {
 	background: var(--light-darkness);
+	padding-left: 8px;
 }
 
 [class*=guilds-] > [class*=guild-] {
@@ -284,24 +283,23 @@
 [class*=guilds-] > [class*=guild-][class*=unread]:not([class*=selected])::before { display: none; }
 
 [class*=guilds-] > [class*=guild-][class*=unread]::after {
-	content: "";
-	border-radius: 100%;
-	width: 15px;
-	height: 15px;
-	top: -4px;
-	left: -4px;
-	position: absolute;
-	background: var(--unread-color);
+	display: none;
+}
+
+[class*=guilds-] > [class*=guild-][class*=unread] {
+	background: var(--primary-color);
+	animation: unread-server-pulse 3s infinite;
+	border-radius: 5px;
+}
+
+#app-mount [class*=guilds-] > [class*=guild-][class*=selected]:not(:first-child) {
+	box-shadow: 2.5px 2.5px 5px 1px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	transform: scale(1.1);
 }
 
 #app-mount [class*=guilds-] > [class*=guild-][class*=selected]::before {
-	content: "";
-	position: absolute;
-	background: linear-gradient(to right, var(--primary-color), transparent 50%);
-	height: 100%;
-	width: 50%;
-	top: 20px;
-	border-radius: 0;
+	display: none;
 }
 
 #app-mount [class*=guilds-] > [class*=guild-][class*=selected]:first-child:before {
@@ -309,7 +307,7 @@
 }
 
 [class*=guilds-] > [class*=guild-][class*=selected]:not(:first-child), [class*=guilds-] > [class*=guild-]:not(:first-child):hover {
-	transform: translateX(5px);
+	/* transform: translateX(5px); */
 }
 
 [class*=guildInner-] {
@@ -360,14 +358,8 @@
 }
 
 #app-mount ::-webkit-scrollbar-track-piece {
-	background: transparent;
-	border: none;
-	border-radius: 5px;
-}
-
-#app-mount :hover::-webkit-scrollbar-track-piece {
 	background: var(--light-darkness);
-	border-radius: 5px;
+	border: none;
 }
 
 #app-mount ::-webkit-scrollbar-thumb {
@@ -408,8 +400,15 @@
 	opacity: 0.8;
 }
 
-[class*=channels] [class*=iconSpacing] > svg {
+[class*=channels] [class*=iconSpacing] > svg, [class*=channels] [class*=actionIcon], [class*=channels] [class^=iconDefault] {
 	opacity: 1;
+	color: white;
+}
+
+[class*=channels] [class^=addButtonIcon] {
+	opacity: 1;
+	margin-top: 1px;
+	margin-right: 5px;
 }
 
 [class*=channels] {
@@ -427,11 +426,14 @@
 [class*=channels] [class*=wrapper] {
 	background: var(--light-darkness);
 	margin: 0 10px;
-	transition: background var(--fade-time);
+	transition: all var(--fade-time);
 }
 
 [class*=channels] [class*=wrapperSelected] {
-	background: linear-gradient(to right, var(--primary-color), var(--light-darkness) 50%);
+	background: var(--heavy-darkness);
+	transform: scale(1.05);
+	z-index: 100;
+	border-radius: 5px;
 }
 
 [class*=channels] [class*=container] > [class*=wrapper][style*=flex] {
@@ -446,11 +448,15 @@
 }
 
 [class*=channels] [class*=wrapperUnread] {
-	background: var(--unread-color);
+	box-shadow: 0 0 10px var(--primary-color);
+	background: var(--primary-color);
 }
 
 [class*=channels] [class*=wrapperHovered] {
 	background: var(--medium-darkness);
+	transform: scale(1.025);
+	z-index: 101;
+	border-radius: 5px;
 }
 
 [class*=channels] [class*=wrapper] > [class*=name] {
@@ -473,6 +479,27 @@
 
 /* Chat Messages */
 
+#app-mount [class^=chat] [class^=messageGroupBlocked] {
+	background: var(--light-darkness);
+	border: none;
+	margin-left: 1%;
+	width: 98%;
+	border-radius: 5px;
+}
+
+[class^=chat] [class^=messageGroupBlocked][class*=revealed] {
+	padding-bottom: 8px;
+}
+
+[class^=chat] [class^=messageGroupBlocked][class*=revealed] > [class^=container] {
+	margin: 20px;
+}
+
+#app-mount [class^=messageGroupBlocked] [class^=messageGroupBlockedBtn] {
+	background: transparent;
+	color: white;
+}
+
 [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-] {
 	margin: 0px;
 	margin-top: 10px;
@@ -483,6 +510,11 @@
 	width: 98%;
 	margin-left: 1%;
 	min-height: 108px;
+}
+
+[class^=chat] [class^=messages] [class^=header] > time {
+	color: white;
+	opacity: 0.75;
 }
 
 [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-] hr {
@@ -506,12 +538,6 @@
 
 [class*=message] [class*=container] {
 	margin-left: 5px;
-}
-
-#app-mount .timestamp {
-	float: right;
-	color: white;
-	opacity: 0.75;
 }
 
 #app-mount [class*=divider-]::before, [class*=divider-] div { display: none; }
@@ -549,37 +575,6 @@
 
 #app-mount [class^=chat-] [class^=newMessagesBar] button:not(:first-child):hover {
 	color: black;
-}
-
-[class^=chat-] img { border-radius: 5px; }
-
-#app-mount [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-]-blocked {
-	margin: 20px 0px;
-	margin-bottom: 40px;
-	width: 98%;
-	margin-left: 1%;
-}
-
-#app-mount [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-]-blocked:not(.revealed) {
-	height: 10px;
-	background: transparent;
-	border: none;
-	border-radius: 5px;
-}
-
-#app-mount [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-]-blocked.revealed {
-	background: var(--medium-darkness);
-	border: none;
-}
-
-#app-mount [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-]-blocked.revealed [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-] {
-	width: 95%;
-	margin-bottom: 20px;
-}
-
-#app-mount [class^=chat-] [class^=messages-][class*=scroller] > [class*=container-]-blocked-btn {
-	background: var(--light-darkness);
-	color: white;
 }
 
 #app-mount [class^=base] h1 {
@@ -1180,13 +1175,49 @@
 	color: black;
 }
 
+/* Plugins */
+
+.dst-tooltip {
+	background-color: var(--primary-color) !important;
+	box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dst-tooltip::after {
+	border-right-color: var(--primary-color) !important;
+}
+
+#app-mount .unread-count-badge, #app-mount .unread-count-channel-badge {
+	background-color: var(--primary-color);
+}
+
 /* Animations */
 
 @keyframes fade-to-medium {
 	0% {
-		background-color: transparent;
+		background-color: transparent
 	}
 	100% {
-		background-color: var(--medium-darkness);
+		background-color: var(--medium-darkness)
+	}
+}
+
+@keyframes unread-server-pulse {
+	0% {
+		box-shadow: 0 0 5px 5px var(--primary-color)
+	}
+	50% {
+		box-shadow: 0 0 2px 2px var(--primary-color)
+	}
+	100% {
+		box-shadow: 0 0 5px 5px var(--primary-color)
+	}
+}
+
+@keyframes rainbow-hue {
+	0% {
+		filter: hue-rotate(0deg)
+	}
+	100% {
+		filter: hue-rotate(360deg)
 	}
 }
